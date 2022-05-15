@@ -1,0 +1,612 @@
+{
+  "stringTable": {
+    "0": "C:/Users/Hugh/Downloads/ORB-SLAM Android-Studio/app/.cxx/cmake/debug/arm64-v8a",
+    "1": "--target=aarch64-none-linux-android24 --gcc-toolchain=C:/Users/Hugh/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/Hugh/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot -I../../../../src/main/cpp -I../../../../src/main/cpp/ORB/include -I../../../../src/main/cpp/ORB -I../../../../src/main/cpp/Eigen -I../../../../src/main/cpp/Eigen/src -IC:/Users/Hugh/Downloads/opencv-3.2.0-android-prebuilts-master/opencv-3.2.0-android-25-arm64-v8a/release -IC:/Users/Hugh/Downloads/opencv/sources/include -IC:/Users/Hugh/Downloads/opencv/sources/include/opencv -IC:/Users/Hugh/Downloads/opencv/sources/modules/core/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/flann/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/imgproc/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/ml/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/photo/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/video/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/imgcodecs/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/shape/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/videoio/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/highgui/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/objdetect/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/superres/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/ts/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/features2d/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/calib3d/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/stitching/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/videostab/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -std=c++11 -frtti -fexceptions -std=c++11 -static-openmp -lz -O2 -DNDEBUG -fPIC",
+    "2": "--target=aarch64-none-linux-android24 --gcc-toolchain=C:/Users/Hugh/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/Hugh/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot -I../../../../src/main/cpp -I../../../../src/main/cpp/ORB/include -I../../../../src/main/cpp/ORB -I../../../../src/main/cpp/Eigen -I../../../../src/main/cpp/Eigen/src -IC:/Users/Hugh/Downloads/opencv-3.2.0-android-prebuilts-master/opencv-3.2.0-android-25-arm64-v8a/release -IC:/Users/Hugh/Downloads/opencv/sources/include -IC:/Users/Hugh/Downloads/opencv/sources/include/opencv -IC:/Users/Hugh/Downloads/opencv/sources/modules/core/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/flann/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/imgproc/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/ml/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/photo/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/video/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/imgcodecs/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/shape/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/videoio/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/highgui/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/objdetect/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/superres/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/ts/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/features2d/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/calib3d/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/stitching/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/videostab/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -O2 -DNDEBUG -fPIC",
+    "3": "--target=aarch64-none-linux-android24 --gcc-toolchain=C:/Users/Hugh/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=C:/Users/Hugh/AppData/Local/Android/Sdk/ndk/21.4.7075529/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dnative_lib_EXPORTS -I../../../../src/main/cpp -I../../../../src/main/cpp/ORB/include -I../../../../src/main/cpp/ORB -I../../../../src/main/cpp/Eigen -I../../../../src/main/cpp/Eigen/src -IC:/Users/Hugh/Downloads/opencv-3.2.0-android-prebuilts-master/opencv-3.2.0-android-25-arm64-v8a/release -IC:/Users/Hugh/Downloads/opencv/sources/include -IC:/Users/Hugh/Downloads/opencv/sources/include/opencv -IC:/Users/Hugh/Downloads/opencv/sources/modules/core/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/flann/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/imgproc/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/ml/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/photo/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/video/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/imgcodecs/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/shape/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/videoio/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/highgui/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/objdetect/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/superres/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/ts/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/features2d/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/calib3d/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/stitching/include -IC:/Users/Hugh/Downloads/opencv/sources/modules/videostab/include -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -std=c++11 -frtti -fexceptions -std=c++11 -static-openmp -lz -O2 -DNDEBUG -fPIC"
+  },
+  "buildFiles": [
+    "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\CMakeLists.txt",
+    "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake",
+    "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\platforms.cmake",
+    "C:\\Users\\Hugh\\Downloads\\opencv-3.2.0-android-prebuilts-master\\opencv-3.2.0-android-25-arm64-v8a\\release\\OpenCVConfig-version.cmake",
+    "C:\\Users\\Hugh\\Downloads\\opencv-3.2.0-android-prebuilts-master\\opencv-3.2.0-android-25-arm64-v8a\\release\\OpenCVConfig.cmake",
+    "C:\\Users\\Hugh\\Downloads\\opencv-3.2.0-android-prebuilts-master\\opencv-3.2.0-android-25-arm64-v8a\\release\\OpenCVModules.cmake"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\.cxx\\cmake\\debug\\arm64-v8a\" clean"
+  ],
+  "buildTargetsCommand": "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe  -C \"C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\.cxx\\cmake\\debug\\arm64-v8a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "ORBSLAM2-release-arm64-v8a": {
+      "buildCommand": "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\.cxx\\cmake\\debug\\arm64-v8a\" ORBSLAM2",
+      "buildType": "debug",
+      "toolchain": "463511488",
+      "abi": "arm64-v8a",
+      "artifactName": "ORBSLAM2",
+      "files": [
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\src\\System.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\src\\Tracking.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\src\\LocalMapping.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\src\\LoopClosing.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\src\\ORBextractor.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\src\\ORBmatcher.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\src\\FrameDrawer.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\src\\Converter.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\src\\MapPoint.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\src\\KeyFrame.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\src\\Map.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\src\\Optimizer.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\src\\PnPsolver.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\src\\Frame.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\src\\KeyFrameDatabase.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\src\\Sim3Solver.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\src\\Initializer.cc",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\.cxx\\cmake\\debug\\arm64-v8a\\libORBSLAM2.a"
+    },
+    "DBoW2-release-arm64-v8a": {
+      "buildCommand": "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\.cxx\\cmake\\debug\\arm64-v8a\" DBoW2",
+      "buildType": "debug",
+      "toolchain": "463511488",
+      "abi": "arm64-v8a",
+      "artifactName": "DBoW2",
+      "files": [
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\DBoW2\\DBoW2\\BowVector.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\DBoW2\\DBoW2\\FORB.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\DBoW2\\DBoW2\\FeatureVector.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\DBoW2\\DBoW2\\ScoringObject.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\DBoW2\\DUtils\\Random.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\DBoW2\\DUtils\\Timestamp.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\DBoW2\\DBoW2\\BowVector.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\DBoW2\\DBoW2\\FORB.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\DBoW2\\DBoW2\\FClass.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\DBoW2\\DBoW2\\FeatureVector.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\DBoW2\\DBoW2\\ScoringObject.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\DBoW2\\DBoW2\\TemplatedVocabulary.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\DBoW2\\DUtils\\Random.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\DBoW2\\DUtils\\Timestamp.h",
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "output": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\.cxx\\cmake\\debug\\arm64-v8a\\libDBoW2.a"
+    },
+    "g2o-release-arm64-v8a": {
+      "buildCommand": "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\.cxx\\cmake\\debug\\arm64-v8a\" g2o",
+      "buildType": "debug",
+      "toolchain": "463511488",
+      "abi": "arm64-v8a",
+      "artifactName": "g2o",
+      "files": [
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\types\\types_sba.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\types\\types_six_dof_expmap.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\types\\types_seven_dof_expmap.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\hyper_graph_action.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\hyper_graph.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\marginal_covariance_cholesky.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\matrix_structure.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\batch_stats.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\parameter.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\cache.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\optimizable_graph.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\solver.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\optimization_algorithm_factory.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\estimate_propagator.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\factory.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\sparse_optimizer.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\hyper_dijkstra.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\parameter_container.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\optimization_algorithm.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\optimization_algorithm_with_hessian.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\optimization_algorithm_levenberg.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\jacobian_workspace.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\robust_kernel.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\robust_kernel_factory.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\robust_kernel_impl.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\stuff\\timeutil.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\stuff\\string_tools.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\stuff\\property.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\stuff\\os_specific.c",
+          "flagsOrdinal": 2,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\types\\types_sba.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\types\\types_six_dof_expmap.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\types\\types_seven_dof_expmap.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\types\\se3quat.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\types\\se3_ops.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\types\\se3_ops.hpp",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\base_edge.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\base_binary_edge.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\base_binary_edge.hpp",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\hyper_graph_action.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\base_multi_edge.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\base_multi_edge.hpp",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\hyper_graph.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\base_unary_edge.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\linear_solver.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\base_unary_edge.hpp",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\base_vertex.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\marginal_covariance_cholesky.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\base_vertex.hpp",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\matrix_structure.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\batch_stats.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\openmp_mutex.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\block_solver.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\block_solver.hpp",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\parameter.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\cache.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\optimizable_graph.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\solver.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\creators.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\optimization_algorithm_factory.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\estimate_propagator.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\optimization_algorithm_property.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\factory.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\sparse_block_matrix.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\sparse_block_matrix.hpp",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\sparse_optimizer.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\hyper_dijkstra.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\parameter_container.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\optimization_algorithm.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\optimization_algorithm_with_hessian.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\optimization_algorithm_levenberg.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\jacobian_workspace.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\robust_kernel.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\robust_kernel_factory.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\core\\robust_kernel_impl.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\stuff\\string_tools.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\stuff\\color_macros.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\stuff\\macros.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\stuff\\misc.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\stuff\\timeutil.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\stuff\\os_specific.h",
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "header": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\ORB\\Thirdparty\\g2o\\g2o\\stuff\\property.h",
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "output": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\.cxx\\cmake\\debug\\arm64-v8a\\libg2o.a"
+    },
+    "native-lib-release-arm64-v8a": {
+      "buildCommand": "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\.cxx\\cmake\\debug\\arm64-v8a\" native-lib",
+      "buildType": "debug",
+      "toolchain": "463511488",
+      "abi": "arm64-v8a",
+      "artifactName": "native-lib",
+      "files": [
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\native-lib.cpp",
+          "flagsOrdinal": 3,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\Plane.cpp",
+          "flagsOrdinal": 3,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\Frame.cpp",
+          "flagsOrdinal": 3,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\Marker.cpp",
+          "flagsOrdinal": 3,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\Process.cpp",
+          "flagsOrdinal": 3,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\Camera.cpp",
+          "flagsOrdinal": 3,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\build\\intermediates\\cmake\\debug\\obj\\arm64-v8a\\libnative-lib.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {
+    "463511488": {
+      "cCompilerExecutable": "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe",
+      "cppCompilerExecutable": "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": [
+    "cc",
+    "cpp"
+  ]
+}
