@@ -8,3 +8,5 @@
 /captures
 .externalNativeBuild
 /app/CMakeLists.txt
+/.idea
+/app/.cxx

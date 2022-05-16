@@ -39,6 +39,10 @@ android {
         cmake {
             path "CMakeLists.txt"
         }
+        cmake {
+            path file("src/main/cpp/basic_viewer/CMakeLists.txt")
+            version '3.18.1'
+        }
     }
     sourceSets {
         main {
