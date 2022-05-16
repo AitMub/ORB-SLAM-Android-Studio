@@ -1,23 +1,20 @@
 package com.example.ys.orbtest;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
 import android.opengl.GLSurfaceView;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.MotionEvent;
-import android.view.SurfaceView;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import java.util.Collections;
-import java.util.List;
+
+import androidx.core.app.ActivityCompat;
+
 import org.apache.commons.math3.linear.Array2DRowRealMatrix;
 import org.apache.commons.math3.linear.RealMatrix;
 import org.opencv.android.BaseLoaderCallback;
@@ -30,6 +27,8 @@ import org.opencv.core.Mat;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.Collections;
+import java.util.List;
 
 public class OrbTest extends CameraActivity implements CameraBridgeViewBase.CvCameraViewListener2 {
 

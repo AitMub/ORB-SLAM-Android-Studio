@@ -177,7 +177,7 @@ target_link_libraries(ORBSLAM2
 # (STL type: c++_static, Android ABI: arm64-v8a, release and debug modes)
 # OpenCV 3.2.0 prebuilts for Android with LLVM C++ runtime available for download
 # on: https://github.com/maximaging/opencv-3.2.0-android-prebuilts.git
-set(OpenCV_DIR C:/Users/Hugh/Downloads/opencv-3.2.0-android-prebuilts-master/opencv-3.2.0-android-25-arm64-v8a/${CMAKE_BUILD_TYPE})
+set(OpenCV_DIR E:/git-workspace/opencv-3.2.0-android-prebuilts-master/opencv-3.2.0-android-25-arm64-v8a/${CMAKE_BUILD_TYPE})
 
 # Retrieve OpenCV_INCLUDE_DIRS and OpenCV_LIBS variables from OpenCVConfig.cmake
 find_package(OpenCV REQUIRED)
@@ -191,33 +191,33 @@ include_directories(${OpenCV_INCLUDE_DIRS})
 
 SET( BUILD_TYPE release )
 
-SET( OpenCV_ROOT_DIR C:/Users/Hugh/Downloads/opencv-3.2.0-android-prebuilts-master )
+SET( OpenCV_ROOT_DIR E:/git-workspace/opencv-3.2.0-android-prebuilts-master )
 
 SET( OpenCV_LIB_DIR
     ${OpenCV_ROOT_DIR}/opencv-3.2.0-android-25-arm64-v8a/${BUILD_TYPE}/lib/arm64-v8a )
 
 set(OpenCV_LIB_COMPONENTS opencv_calib3d;opencv_core;opencv_features2d;opencv_flann;opencv_highgui;opencv_imgcodecs;opencv_imgproc;opencv_ml;opencv_objdetect;opencv_photo;opencv_shape;opencv_stitching;opencv_superres;opencv_video;opencv_videoio;opencv_videostab)
 
-set(OpenCV_INCLUDE_DIRS "C:/Users/Hugh/Downloads/opencv-3.2.0-android-prebuilts-master/opencv-3.2.0-android-25-arm64-v8a/release" 
-"C:/Users/Hugh/Downloads/opencv/sources/include" 
-"C:/Users/Hugh/Downloads/opencv/sources/include/opencv" 
-"C:/Users/Hugh/Downloads/opencv/sources/modules/core/include" 
-"C:/Users/Hugh/Downloads/opencv/sources/modules/flann/include" 
-"C:/Users/Hugh/Downloads/opencv/sources/modules/imgproc/include" 
-"C:/Users/Hugh/Downloads/opencv/sources/modules/ml/include" 
-"C:/Users/Hugh/Downloads/opencv/sources/modules/photo/include" 
-"C:/Users/Hugh/Downloads/opencv/sources/modules/video/include" 
-"C:/Users/Hugh/Downloads/opencv/sources/modules/imgcodecs/include" 
-"C:/Users/Hugh/Downloads/opencv/sources/modules/shape/include" 
-"C:/Users/Hugh/Downloads/opencv/sources/modules/videoio/include" 
-"C:/Users/Hugh/Downloads/opencv/sources/modules/highgui/include" 
-"C:/Users/Hugh/Downloads/opencv/sources/modules/objdetect/include" 
-"C:/Users/Hugh/Downloads/opencv/sources/modules/superres/include" 
-"C:/Users/Hugh/Downloads/opencv/sources/modules/ts/include" 
-"C:/Users/Hugh/Downloads/opencv/sources/modules/features2d/include" 
-"C:/Users/Hugh/Downloads/opencv/sources/modules/calib3d/include" 
-"C:/Users/Hugh/Downloads/opencv/sources/modules/stitching/include" 
-"C:/Users/Hugh/Downloads/opencv/sources/modules/videostab/include")
+set(OpenCV_INCLUDE_DIRS "E:/git-workspace/opencv-3.2.0-android-prebuilts-master/opencv-3.2.0-android-25-arm64-v8a/release"
+"C:/opencv/sources/include" 
+"C:/opencv/sources/include/opencv" 
+"C:/opencv/sources/modules/core/include" 
+"C:/opencv/sources/modules/flann/include" 
+"C:/opencv/sources/modules/imgproc/include" 
+"C:/opencv/sources/modules/ml/include" 
+"C:/opencv/sources/modules/photo/include" 
+"C:/opencv/sources/modules/video/include" 
+"C:/opencv/sources/modules/imgcodecs/include" 
+"C:/opencv/sources/modules/shape/include" 
+"C:/opencv/sources/modules/videoio/include" 
+"C:/opencv/sources/modules/highgui/include" 
+"C:/opencv/sources/modules/objdetect/include" 
+"C:/opencv/sources/modules/superres/include" 
+"C:/opencv/sources/modules/ts/include" 
+"C:/opencv/sources/modules/features2d/include" 
+"C:/opencv/sources/modules/calib3d/include" 
+"C:/opencv/sources/modules/stitching/include" 
+"C:/opencv/sources/modules/videostab/include")
 
 MESSAGE( STATUS "Configured OpenCV include directories: ${OpenCV_INCLUDE_DIRS}" )
 

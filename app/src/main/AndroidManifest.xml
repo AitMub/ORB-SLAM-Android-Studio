@@ -29,17 +29,28 @@
 
     <application
         android:label="@string/app_name"
-        android:theme="@android:style/Theme.Translucent" >
+        android:theme="@style/Theme.JniDemo" >
 
-        <activity android:name="OrbTest"
-            android:label="@string/app_name"
-            android:screenOrientation="landscape"
-            android:configChanges="keyboardHidden|orientation">
+        <activity android:name=".ThreeDActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".OrbTest"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation">
+        </activity>
+
+        <activity android:name="com.example.ys.orbtest.basic_viewer.BasicViewerActivity"
+            android:exported="true"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboardHidden|orientation">
+        </activity>
+
     </application>
 
     <supports-screens android:resizeable="true"
