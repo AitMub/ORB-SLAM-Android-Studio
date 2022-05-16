@@ -17,7 +17,7 @@
       ],
       "buildRoot": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\.cxx\\cmake\\debug\\arm64-v8a",
       "cmakeToolchain": "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake",
-      "cmakeExecutable": "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe",
+      "cmakeExecutable": "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\cmake\\3.18.1\\bin\\cmake.exe",
       "variables": [
         {
           "name": "CMAKE_CXX_FLAGS",
@@ -65,7 +65,7 @@
         },
         {
           "name": "CMAKE_MAKE_PROGRAM",
-          "value": "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe"
+          "value": "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\cmake\\3.18.1\\bin\\ninja.exe"
         },
         {
           "name": "CMAKE_SYSTEM_NAME",
@@ -105,15 +105,15 @@
     "module": {
       "buildSystem": "CMAKE",
       "cmake": {
-        "cmakeExe": "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe",
-        "minimumCmakeVersion": "3.10.2",
-        "ninjaExe": "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe"
+        "cmakeExe": "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\cmake\\3.18.1\\bin\\cmake.exe",
+        "minimumCmakeVersion": "3.18.1",
+        "ninjaExe": "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\cmake\\3.18.1\\bin\\ninja.exe"
       },
       "cmakeToolchainFile": "C:\\Users\\Hugh\\AppData\\Local\\Android\\Sdk\\ndk\\21.4.7075529\\build\\cmake\\android.toolchain.cmake",
       "cxxFolder": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\.cxx",
       "gradleModulePathName": ":app",
       "intermediatesFolder": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\build\\intermediates",
-      "makeFile": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\CMakeLists.txt",
+      "makeFile": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\src\\main\\cpp\\basic_viewer\\CMakeLists.txt",
       "moduleBuildFile": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app\\build.gradle",
       "moduleRootFolder": "C:\\Users\\Hugh\\Downloads\\ORB-SLAM Android-Studio\\app",
       "ndkDefaultAbiList": [
