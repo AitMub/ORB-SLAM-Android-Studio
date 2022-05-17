@@ -11,6 +11,7 @@
 #include <string>
 
 #include "../shader_s.h"
+#include "render_parameter.h"
 
 class basic_renderer {
 public:
@@ -22,19 +23,17 @@ public:
 
     void OpenModel(const std::string& path);
 
+    void SetMVPMatrix() const;
+
+    void SetShaderParameters() const;
+
 private:
     Shader * pMyShader;
 
     GLuint VAO;
     GLuint VBO;
 
-    GLuint mVertexBuffer;
-    GLuint mIndexBuffer;
-
-    GLuint mProgram;
-    GLint mVertexAttribPos;
-
-    unsigned int mElementCount = 0;
+    RenderParameter renderParameter;
 
     AAssetManager* mgr;
 };

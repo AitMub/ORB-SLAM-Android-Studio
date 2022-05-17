@@ -15,7 +15,7 @@ std::unique_ptr<basic_renderer> mRenderer;
 extern "C" {
 JNIEXPORT void JNICALL
 Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1init(JNIEnv *env, jobject instance, jobject assetManager) {
-AAssetManager* mgr = AAssetManager_fromJava(env, assetManager);
+    AAssetManager* mgr = AAssetManager_fromJava(env, assetManager);
     mRenderer->Init(mgr);
 }
 

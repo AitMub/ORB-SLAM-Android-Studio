@@ -5,17 +5,16 @@ out vec4 FragColor;
 in vec3 Normal;
 in vec3 FragPos;
 
-
 uniform vec3 lightPos;
 uniform vec3 lightColor;
 uniform vec3 viewPos;
-uniform vec3 objectColor;
+uniform vec3 defaultColor;
 
 //用于实现简单交互
-uniform int p;
+uniform int specP;
 uniform float ambientStrength;
 uniform float diffuseStrength;
-uniform float highStrength;
+uniform float specularStrength;
 
 
 void main()
@@ -32,8 +31,8 @@ void main()
    // highlight
    vec3 viewDir = normalize(viewPos - FragPos);
    vec3  bivector=normalize(lightDir+viewDir);
-   float high=pow(max(0.0 ,dot(bivector, norm)), float(p));
-   vec3 highlight=highStrength * high * lightColor;
+   float high=pow(max(0.0 ,dot(bivector, norm)), float(specP));
+   vec3 highlight=specularStrength * high * lightColor;
 
-   FragColor = vec4((ambient +  diffuse) * objectColor +  highlight, 1.0);
+   FragColor = vec4((ambient +  diffuse) * defaultColor +  highlight, 1.0);
 }
