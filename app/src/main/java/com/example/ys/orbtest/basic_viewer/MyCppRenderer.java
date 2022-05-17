@@ -17,7 +17,7 @@ public class MyCppRenderer {
 
     private native void _init(AssetManager _mgr);
     private native void _draw();
-    // Used to load the 'cpp_renderer' library on application startup.
+    // Used to load the 'basic_renderer' library on application startup.
     static {
         System.loadLibrary("basic_renderer");
     }

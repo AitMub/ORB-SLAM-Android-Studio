@@ -10,7 +10,7 @@
 #include <android/asset_manager.h>
 #include <jni.h>
 
-std::unique_ptr<cpp_renderer> mRenderer;
+std::unique_ptr<basic_renderer> mRenderer;
 
 extern "C" {
 JNIEXPORT void JNICALL
@@ -26,7 +26,7 @@ Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1draw(JNIEnv * env, job
 
 // Create renderer instance
 jint JNI_OnLoad(JavaVM* vm, void* reserved) {
-    mRenderer = std::unique_ptr<cpp_renderer> {new cpp_renderer{}};
+    mRenderer = std::unique_ptr<basic_renderer> {new basic_renderer{}};
 
     JNIEnv* env;
     if(vm->GetEnv(reinterpret_cast<void**>(&env), JNI_VERSION_1_6) != JNI_OK) {

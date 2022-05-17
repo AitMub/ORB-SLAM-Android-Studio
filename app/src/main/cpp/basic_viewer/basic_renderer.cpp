@@ -15,55 +15,57 @@ glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
 glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
 glm::vec3 cameraUp = glm::vec3(0.5f, 0.5f, 0.0f);
 
+glm::vec3 lightPos = glm::vec3(1.2f, 0.0f, 2.0f);
+
+int p = 15;
+float ambientStrength = 0.2f;
+float diffuseStrength = 1.0f;
+float highStrength = 1.0f;
+
 float vertices[] = {
-        -0.5f, -0.5f, -0.5f,
-        0.5f, -0.5f, -0.5f,
-        0.5f, 0.5f, -0.5f,
-        0.5f, 0.5f, -0.5f,
-        -0.5f, 0.5f, -0.5f,
-        -0.5f, -0.5f, -0.5f,
+        -0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
+        0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
+        0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
+        0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
+        -0.5f, 0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
+        -0.5f, -0.5f, -0.5f, 0.0f, 0.0f, -1.0f,
 
-        -0.5f, -0.5f, 0.5f,
-        0.5f, -0.5f, 0.5f,
-        0.5f, 0.5f, 0.5f,
-        0.5f, 0.5f, 0.5f,
-        -0.5f, 0.5f, 0.5f,
-        -0.5f, -0.5f, 0.5f,
+        -0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
+        0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
+        0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
+        0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
+        -0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
+        -0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
 
-        -0.5f, 0.5f, 0.5f,
-        -0.5f, 0.5f, -0.5f,
-        -0.5f, -0.5f, -0.5f,
-        -0.5f, -0.5f, -0.5f,
-        -0.5f, -0.5f, 0.5f,
-        -0.5f, 0.5f, 0.5f,
+        -0.5f, 0.5f, 0.5f, -1.0f, 0.0f, 0.0f,
+        -0.5f, 0.5f, -0.5f, -1.0f, 0.0f, 0.0f,
+        -0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f,
+        -0.5f, -0.5f, -0.5f, -1.0f, 0.0f, 0.0f,
+        -0.5f, -0.5f, 0.5f, -1.0f, 0.0f, 0.0f,
+        -0.5f, 0.5f, 0.5f, -1.0f, 0.0f, 0.0f,
 
-        0.5f, 0.5f, 0.5f,
-        0.5f, 0.5f, -0.5f,
-        0.5f, -0.5f, -0.5f,
-        0.5f, -0.5f, -0.5f,
-        0.5f, -0.5f, 0.5f,
-        0.5f, 0.5f, 0.5f,
+        0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,
+        0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
+        0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
+        0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f,
+        0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,
+        0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,
 
-        -0.5f, -0.5f, -0.5f,
-        0.5f, -0.5f, -0.5f,
-        0.5f, -0.5f, 0.5f,
-        0.5f, -0.5f, 0.5f,
-        -0.5f, -0.5f, 0.5f,
-        -0.5f, -0.5f, -0.5f,
+        -0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f,
+        0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f,
+        0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f,
+        0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f,
+        -0.5f, -0.5f, 0.5f, 0.0f, -1.0f, 0.0f,
+        -0.5f, -0.5f, -0.5f, 0.0f, -1.0f, 0.0f,
 
-        -0.5f, 0.5f, -0.5f,
-        0.5f, 0.5f, -0.5f,
-        0.5f, 0.5f, 0.5f,
-        0.5f, 0.5f, 0.5f,
-        -0.5f, 0.5f, 0.5f,
-        -0.5f, 0.5f, -0.5f,
+        -0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+        0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+        0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
+        0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
+        -0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
+        -0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f
 };
 
-// datas to be drawn
-// no need to import whole glm for simple example
-struct Vertex {
-    float x, y, z;
-};
 
 float  QUAD[][3] = {
         {-0.0f, -0.0f,0.0f},
@@ -172,7 +174,7 @@ GLuint createProgram(const char* vtxSrc, const char* fragSrc) {
     return program;
 }
 
-void cpp_renderer::Init(AAssetManager* _mgr) {
+void basic_renderer::Init(AAssetManager* _mgr){
     mgr = _mgr;
 
     const GLubyte* OpenGLVersion = glGetString(GL_VERSION);
@@ -183,8 +185,26 @@ void cpp_renderer::Init(AAssetManager* _mgr) {
     glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)2340 / (float)1080, 0.1f, 100.0f);
     pMyShader->setMat4("projection", projection);
 
-
     glEnable(GL_DEPTH_TEST);
+
+    // allocate a VAO and a VBO
+    glGenVertexArrays(1, &VAO);
+    glGenBuffers(1, &VBO);
+
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+    glBindVertexArray(VAO);
+
+    // bind attribute
+    // position
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6*sizeof(float), (void*)0);
+    glEnableVertexAttribArray(0);
+    // normal
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6*sizeof(float), (void*)(3*sizeof(float)));
+    glEnableVertexAttribArray(1);
+/*
+
 
     glGenBuffers(1, &mVertexBuffer);
     glBindBuffer(GL_ARRAY_BUFFER, mVertexBuffer);
@@ -199,6 +219,8 @@ void cpp_renderer::Init(AAssetManager* _mgr) {
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned)*testOrder.size(), &testOrder[0], GL_STATIC_DRAW);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 
+
+
     static const char VERTEX_SHADER[] =
             "precision highp float;\n"
             "attribute vec4 inPosition;\n"
@@ -212,13 +234,12 @@ void cpp_renderer::Init(AAssetManager* _mgr) {
             "}\n";
 
     mProgram = createProgram(VERTEX_SHADER, FRAGMENT_SHADER);
-    mVertexAttribPos = glGetAttribLocation(mProgram, "inPosition");
+    mVertexAttribPos = glGetAttribLocation(mProgram, "inPosition");*/
 }
 
 // renderer
-void cpp_renderer::Draw() {
-    glUseProgram(mProgram);
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+void basic_renderer::Draw() const{
+    glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 
     pMyShader->use();
 
@@ -233,7 +254,24 @@ void cpp_renderer::Draw() {
     model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
     pMyShader->setMat4("model",model);
 
-    glBindBuffer(GL_ARRAY_BUFFER, mVertexBuffer);
+    // pass uniform parameters
+    int pLoc = glGetUniformLocation(pMyShader->ID, "p");
+    glUniform1i(pLoc, p);
+    int ambientStrengthLoc = glGetUniformLocation(pMyShader->ID, "ambientStrength");
+    glUniform1f(ambientStrengthLoc, ambientStrength);
+    int diffuseStrengthLoc = glGetUniformLocation(pMyShader->ID, "diffuseStrength");
+    glUniform1f(diffuseStrengthLoc, diffuseStrength);
+    int highStrengthLoc = glGetUniformLocation(pMyShader->ID, "highStrength");
+    glUniform1f(highStrengthLoc, highStrength);
+    pMyShader->setVec3("objectColor", 1.0f, 0.5f, 0.3f);
+    pMyShader->setVec3("lightColor", 1.0f, 1.0f, 1.0f);
+    pMyShader->setVec3("lightPos", lightPos);
+    pMyShader->setVec3("viewPos", cameraPos);
+
+    glBindVertexArray(VAO);
+    glDrawArrays(GL_TRIANGLES, 0, 36);
+
+/*    glBindBuffer(GL_ARRAY_BUFFER, mVertexBuffer);
     glEnableVertexAttribArray(mVertexAttribPos);
     glVertexAttribPointer(mVertexAttribPos, 3, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)0);
 
@@ -241,5 +279,5 @@ void cpp_renderer::Draw() {
     glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, (void*)0);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);*/
 }

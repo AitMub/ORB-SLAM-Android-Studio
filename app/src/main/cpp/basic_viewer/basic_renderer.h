@@ -12,7 +12,7 @@
 
 #include "../shader_s.h"
 
-class cpp_renderer {
+class basic_renderer {
 public:
     // Initialize shaders and GL buffers
     void Init(AAssetManager* _mgr);
@@ -24,6 +24,9 @@ public:
 
 private:
     Shader * pMyShader;
+
+    GLuint VAO;
+    GLuint VBO;
 
     GLuint mVertexBuffer;
     GLuint mIndexBuffer;
