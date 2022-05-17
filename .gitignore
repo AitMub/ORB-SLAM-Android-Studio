@@ -11,3 +11,4 @@
 /.idea
 /app/.cxx
 app/CMakeLists.txt
+/openCVLibrary320/build

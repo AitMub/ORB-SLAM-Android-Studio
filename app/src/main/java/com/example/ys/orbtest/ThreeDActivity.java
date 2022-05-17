@@ -25,10 +25,12 @@ public class ThreeDActivity extends AppCompatActivity implements View.OnClickLis
             case  R.id.ThreeDButton:
                 Intent intent = new Intent(this, BasicViewerActivity.class);
                 startActivity(intent);
+                break;
 
             case R.id.ARButton:
                 Intent intent2 = new Intent(this, OrbTest.class);
                 startActivity(intent2);
+                break;
         }
     }
 }
