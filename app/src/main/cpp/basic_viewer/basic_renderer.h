@@ -8,16 +8,19 @@
 #include <GLES3/gl3.h>
 #include <android/asset_manager_jni.h>
 #include <android/asset_manager.h>
+#include <string>
 
 #include "../shader_s.h"
 
 class cpp_renderer {
 public:
     // Initialize shaders and GL buffers
-    void init(AAssetManager* _mgr);
+    void Init(AAssetManager* _mgr);
 
     // Render the OpenGL buffers using the shader
-    void draw();
+    void Draw() const;
+
+    void OpenModel(const std::string& path);
 
 private:
     Shader * pMyShader;

@@ -16,12 +16,12 @@ extern "C" {
 JNIEXPORT void JNICALL
 Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1init(JNIEnv *env, jobject instance, jobject assetManager) {
 AAssetManager* mgr = AAssetManager_fromJava(env, assetManager);
-mRenderer->init(mgr);
+    mRenderer->Init(mgr);
 }
 
 JNIEXPORT void JNICALL
 Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1draw(JNIEnv * env, jobject instance) {
-mRenderer->draw();
+    mRenderer->Draw();
 }
 
 // Create renderer instance

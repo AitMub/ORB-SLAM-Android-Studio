@@ -7634,7 +7634,7 @@ public class Imgproc {
      * Calculates a contour area.
      *
      * The function computes a contour area. Similarly to moments , the area is computed using the Green
-     * formula. Thus, the returned area and the number of non-zero pixels, if you draw the contour using
+     * formula. Thus, the returned area and the number of non-zero pixels, if you Draw the contour using
      * #drawContours or #fillPoly , can be different. Also, the function will most certainly give a wrong
      * results for contours with self-intersections.
      *
@@ -7670,7 +7670,7 @@ public class Imgproc {
      * Calculates a contour area.
      *
      * The function computes a contour area. Similarly to moments , the area is computed using the Green
-     * formula. Thus, the returned area and the number of non-zero pixels, if you draw the contour using
+     * formula. Thus, the returned area and the number of non-zero pixels, if you Draw the contour using
      * #drawContours or #fillPoly , can be different. Also, the function will most certainly give a wrong
      * results for contours with self-intersections.
      *
@@ -7727,9 +7727,9 @@ public class Imgproc {
     //
 
     /**
-     * Finds the four vertices of a rotated rect. Useful to draw the rotated rectangle.
+     * Finds the four vertices of a rotated rect. Useful to Draw the rotated rectangle.
      *
-     * The function finds the four vertices of a rotated rectangle. This function is useful to draw the
+     * The function finds the four vertices of a rotated rectangle. This function is useful to Draw the
      * rectangle. In C++, instead of using this function, you can directly use RotatedRect::points method. Please
      * visit the REF: tutorial_bounding_rotated_ellipses "tutorial on Creating Bounding rotated boxes and ellipses for contours" for more information.
      *
@@ -8442,7 +8442,7 @@ public class Imgproc {
      * @param pt2 Vertex of the rectangle opposite to pt1 .
      * @param color Rectangle color or brightness (grayscale image).
      * @param thickness Thickness of lines that make up the rectangle. Negative values, like #FILLED,
-     * mean that the function has to draw a filled rectangle.
+     * mean that the function has to Draw a filled rectangle.
      * @param lineType Type of the line. See #LineTypes
      * @param shift Number of fractional bits in the point coordinates.
      */
@@ -8461,7 +8461,7 @@ public class Imgproc {
      * @param pt2 Vertex of the rectangle opposite to pt1 .
      * @param color Rectangle color or brightness (grayscale image).
      * @param thickness Thickness of lines that make up the rectangle. Negative values, like #FILLED,
-     * mean that the function has to draw a filled rectangle.
+     * mean that the function has to Draw a filled rectangle.
      * @param lineType Type of the line. See #LineTypes
      */
     public static void rectangle(Mat img, Point pt1, Point pt2, Scalar color, int thickness, int lineType) {
@@ -8479,7 +8479,7 @@ public class Imgproc {
      * @param pt2 Vertex of the rectangle opposite to pt1 .
      * @param color Rectangle color or brightness (grayscale image).
      * @param thickness Thickness of lines that make up the rectangle. Negative values, like #FILLED,
-     * mean that the function has to draw a filled rectangle.
+     * mean that the function has to Draw a filled rectangle.
      */
     public static void rectangle(Mat img, Point pt1, Point pt2, Scalar color, int thickness) {
         rectangle_2(img.nativeObj, pt1.x, pt1.y, pt2.x, pt2.y, color.val[0], color.val[1], color.val[2], color.val[3], thickness);
@@ -8495,7 +8495,7 @@ public class Imgproc {
      * @param pt1 Vertex of the rectangle.
      * @param pt2 Vertex of the rectangle opposite to pt1 .
      * @param color Rectangle color or brightness (grayscale image).
-     * mean that the function has to draw a filled rectangle.
+     * mean that the function has to Draw a filled rectangle.
      */
     public static void rectangle(Mat img, Point pt1, Point pt2, Scalar color) {
         rectangle_3(img.nativeObj, pt1.x, pt1.y, pt2.x, pt2.y, color.val[0], color.val[1], color.val[2], color.val[3]);
@@ -8644,9 +8644,9 @@ public class Imgproc {
      * A piecewise-linear curve is used to approximate the elliptic arc
      * boundary. If you need more control of the ellipse rendering, you can retrieve the curve using
      * #ellipse2Poly and then render it with #polylines or fill it with #fillPoly. If you use the first
-     * variant of the function and want to draw the whole ellipse, not an arc, pass {@code startAngle=0} and
+     * variant of the function and want to Draw the whole ellipse, not an arc, pass {@code startAngle=0} and
      * {@code endAngle=360}. If {@code startAngle} is greater than {@code endAngle}, they are swapped. The figure below explains
-     * the meaning of the parameters to draw the blue arc.
+     * the meaning of the parameters to Draw the blue arc.
      *
      * ![Parameters of Elliptic Arc](pics/ellipse.svg)
      *
@@ -8674,9 +8674,9 @@ public class Imgproc {
      * A piecewise-linear curve is used to approximate the elliptic arc
      * boundary. If you need more control of the ellipse rendering, you can retrieve the curve using
      * #ellipse2Poly and then render it with #polylines or fill it with #fillPoly. If you use the first
-     * variant of the function and want to draw the whole ellipse, not an arc, pass {@code startAngle=0} and
+     * variant of the function and want to Draw the whole ellipse, not an arc, pass {@code startAngle=0} and
      * {@code endAngle=360}. If {@code startAngle} is greater than {@code endAngle}, they are swapped. The figure below explains
-     * the meaning of the parameters to draw the blue arc.
+     * the meaning of the parameters to Draw the blue arc.
      *
      * ![Parameters of Elliptic Arc](pics/ellipse.svg)
      *
@@ -8703,9 +8703,9 @@ public class Imgproc {
      * A piecewise-linear curve is used to approximate the elliptic arc
      * boundary. If you need more control of the ellipse rendering, you can retrieve the curve using
      * #ellipse2Poly and then render it with #polylines or fill it with #fillPoly. If you use the first
-     * variant of the function and want to draw the whole ellipse, not an arc, pass {@code startAngle=0} and
+     * variant of the function and want to Draw the whole ellipse, not an arc, pass {@code startAngle=0} and
      * {@code endAngle=360}. If {@code startAngle} is greater than {@code endAngle}, they are swapped. The figure below explains
-     * the meaning of the parameters to draw the blue arc.
+     * the meaning of the parameters to Draw the blue arc.
      *
      * ![Parameters of Elliptic Arc](pics/ellipse.svg)
      *
@@ -8731,9 +8731,9 @@ public class Imgproc {
      * A piecewise-linear curve is used to approximate the elliptic arc
      * boundary. If you need more control of the ellipse rendering, you can retrieve the curve using
      * #ellipse2Poly and then render it with #polylines or fill it with #fillPoly. If you use the first
-     * variant of the function and want to draw the whole ellipse, not an arc, pass {@code startAngle=0} and
+     * variant of the function and want to Draw the whole ellipse, not an arc, pass {@code startAngle=0} and
      * {@code endAngle=360}. If {@code startAngle} is greater than {@code endAngle}, they are swapped. The figure below explains
-     * the meaning of the parameters to draw the blue arc.
+     * the meaning of the parameters to Draw the blue arc.
      *
      * ![Parameters of Elliptic Arc](pics/ellipse.svg)
      *
@@ -9111,12 +9111,12 @@ public class Imgproc {
      *
      * @param image Destination image.
      * @param contours All the input contours. Each contour is stored as a point vector.
-     * @param contourIdx Parameter indicating a contour to draw. If it is negative, all the contours are drawn.
+     * @param contourIdx Parameter indicating a contour to Draw. If it is negative, all the contours are drawn.
      * @param color Color of the contours.
      * @param thickness Thickness of lines the contours are drawn with. If it is negative (for example,
      * thickness=#FILLED ), the contour interiors are drawn.
      * @param lineType Line connectivity. See #LineTypes
-     * @param hierarchy Optional information about hierarchy. It is only needed if you want to draw only
+     * @param hierarchy Optional information about hierarchy. It is only needed if you want to Draw only
      * some of the contours (see maxLevel ).
      * @param maxLevel Maximal level for drawn contours. If it is 0, only the specified contour is drawn.
      * If it is 1, the function draws the contour(s) and all the nested contours. If it is 2, the function
@@ -9146,12 +9146,12 @@ public class Imgproc {
      *
      * @param image Destination image.
      * @param contours All the input contours. Each contour is stored as a point vector.
-     * @param contourIdx Parameter indicating a contour to draw. If it is negative, all the contours are drawn.
+     * @param contourIdx Parameter indicating a contour to Draw. If it is negative, all the contours are drawn.
      * @param color Color of the contours.
      * @param thickness Thickness of lines the contours are drawn with. If it is negative (for example,
      * thickness=#FILLED ), the contour interiors are drawn.
      * @param lineType Line connectivity. See #LineTypes
-     * @param hierarchy Optional information about hierarchy. It is only needed if you want to draw only
+     * @param hierarchy Optional information about hierarchy. It is only needed if you want to Draw only
      * some of the contours (see maxLevel ).
      * @param maxLevel Maximal level for drawn contours. If it is 0, only the specified contour is drawn.
      * If it is 1, the function draws the contour(s) and all the nested contours. If it is 2, the function
@@ -9180,12 +9180,12 @@ public class Imgproc {
      *
      * @param image Destination image.
      * @param contours All the input contours. Each contour is stored as a point vector.
-     * @param contourIdx Parameter indicating a contour to draw. If it is negative, all the contours are drawn.
+     * @param contourIdx Parameter indicating a contour to Draw. If it is negative, all the contours are drawn.
      * @param color Color of the contours.
      * @param thickness Thickness of lines the contours are drawn with. If it is negative (for example,
      * thickness=#FILLED ), the contour interiors are drawn.
      * @param lineType Line connectivity. See #LineTypes
-     * @param hierarchy Optional information about hierarchy. It is only needed if you want to draw only
+     * @param hierarchy Optional information about hierarchy. It is only needed if you want to Draw only
      * some of the contours (see maxLevel ).
      * If it is 1, the function draws the contour(s) and all the nested contours. If it is 2, the function
      * draws the contours, all the nested contours, all the nested-to-nested contours, and so on. This
@@ -9213,7 +9213,7 @@ public class Imgproc {
      *
      * @param image Destination image.
      * @param contours All the input contours. Each contour is stored as a point vector.
-     * @param contourIdx Parameter indicating a contour to draw. If it is negative, all the contours are drawn.
+     * @param contourIdx Parameter indicating a contour to Draw. If it is negative, all the contours are drawn.
      * @param color Color of the contours.
      * @param thickness Thickness of lines the contours are drawn with. If it is negative (for example,
      * thickness=#FILLED ), the contour interiors are drawn.
@@ -9245,7 +9245,7 @@ public class Imgproc {
      *
      * @param image Destination image.
      * @param contours All the input contours. Each contour is stored as a point vector.
-     * @param contourIdx Parameter indicating a contour to draw. If it is negative, all the contours are drawn.
+     * @param contourIdx Parameter indicating a contour to Draw. If it is negative, all the contours are drawn.
      * @param color Color of the contours.
      * @param thickness Thickness of lines the contours are drawn with. If it is negative (for example,
      * thickness=#FILLED ), the contour interiors are drawn.
@@ -9276,7 +9276,7 @@ public class Imgproc {
      *
      * @param image Destination image.
      * @param contours All the input contours. Each contour is stored as a point vector.
-     * @param contourIdx Parameter indicating a contour to draw. If it is negative, all the contours are drawn.
+     * @param contourIdx Parameter indicating a contour to Draw. If it is negative, all the contours are drawn.
      * @param color Color of the contours.
      * thickness=#FILLED ), the contour interiors are drawn.
      * some of the contours (see maxLevel ).
@@ -9360,7 +9360,7 @@ public class Imgproc {
      * @param fontFace Font type, see #HersheyFonts.
      * @param fontScale Font scale factor that is multiplied by the font-specific base size.
      * @param color Text color.
-     * @param thickness Thickness of the lines used to draw a text.
+     * @param thickness Thickness of the lines used to Draw a text.
      * @param lineType Line type. See #LineTypes
      * @param bottomLeftOrigin When true, the image data origin is at the bottom-left corner. Otherwise,
      * it is at the top-left corner.
@@ -9382,7 +9382,7 @@ public class Imgproc {
      * @param fontFace Font type, see #HersheyFonts.
      * @param fontScale Font scale factor that is multiplied by the font-specific base size.
      * @param color Text color.
-     * @param thickness Thickness of the lines used to draw a text.
+     * @param thickness Thickness of the lines used to Draw a text.
      * @param lineType Line type. See #LineTypes
      * it is at the top-left corner.
      */
@@ -9403,7 +9403,7 @@ public class Imgproc {
      * @param fontFace Font type, see #HersheyFonts.
      * @param fontScale Font scale factor that is multiplied by the font-specific base size.
      * @param color Text color.
-     * @param thickness Thickness of the lines used to draw a text.
+     * @param thickness Thickness of the lines used to Draw a text.
      * it is at the top-left corner.
      */
     public static void putText(Mat img, String text, Point org, int fontFace, double fontScale, Scalar color, int thickness) {

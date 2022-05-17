@@ -172,7 +172,7 @@ GLuint createProgram(const char* vtxSrc, const char* fragSrc) {
     return program;
 }
 
-void cpp_renderer::init(AAssetManager* _mgr) {
+void cpp_renderer::Init(AAssetManager* _mgr) {
     mgr = _mgr;
 
     const GLubyte* OpenGLVersion = glGetString(GL_VERSION);
@@ -216,7 +216,7 @@ void cpp_renderer::init(AAssetManager* _mgr) {
 }
 
 // renderer
-void cpp_renderer::draw() {
+void cpp_renderer::Draw() {
     glUseProgram(mProgram);
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 

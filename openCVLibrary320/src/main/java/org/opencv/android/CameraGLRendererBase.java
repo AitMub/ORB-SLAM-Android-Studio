@@ -314,7 +314,7 @@ public abstract class CameraGLRendererBase implements GLSurfaceView.Renderer, Su
         mFBOHeight = height;
     }
 
-    // draw texture to FBO or to screen if fbo == 0
+    // Draw texture to FBO or to screen if fbo == 0
     private void drawTex(int tex, boolean isOES, int fbo)
     {
         GLES20.glBindFramebuffer(GLES20.GL_FRAMEBUFFER, fbo);

@@ -345,7 +345,7 @@ class AsyncServiceHelper
         try
         {
             System.load(AbsPath);
-            Log.d(TAG, "OpenCV libs init was ok!");
+            Log.d(TAG, "OpenCV libs Init was ok!");
         }
         catch(UnsatisfiedLinkError e)
         {
@@ -359,7 +359,7 @@ class AsyncServiceHelper
 
     private boolean initOpenCVLibs(String Path, String Libs)
     {
-        Log.d(TAG, "Trying to init OpenCV libs"+"  Path "+Path+"  Libs "+Libs);
+        Log.d(TAG, "Trying to Init OpenCV libs"+"  Path "+Path+"  Libs "+Libs);
         if ((null != Path) && (Path.length() != 0))
         {
             boolean result = true;

@@ -66,7 +66,7 @@ public class MyRender implements Renderer {
         glClear( GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
 
         if(flag){
-//            cube.draw();
+//            cube.Draw();
             ball.draw();
         }
 

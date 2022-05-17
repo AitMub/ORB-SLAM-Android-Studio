@@ -76,7 +76,7 @@ class StaticHelper {
 
     private static boolean initOpenCVLibs(String Libs)
     {
-        Log.d(TAG, "Trying to init OpenCV libs");
+        Log.d(TAG, "Trying to Init OpenCV libs");
 
         boolean result = true;
 
