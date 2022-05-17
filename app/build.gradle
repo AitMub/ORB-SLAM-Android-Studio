@@ -62,5 +62,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation project(':openCVLibrary320')
     implementation files('lib/commons-math3-3.6.1.jar')
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.22'
 
 }
