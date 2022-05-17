@@ -180,7 +180,7 @@ void cpp_renderer::init(AAssetManager* _mgr) {
     pMyShader = new Shader("vert", "frag", mgr);
     pMyShader->use();
     // pass projection matrix to shader (as projection matrix rarely changes there's no need to do this per frame)
-    glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)1080 / (float)2340, 0.1f, 100.0f);
+    glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)2340 / (float)1080, 0.1f, 100.0f);
     pMyShader->setMat4("projection", projection);
 
 

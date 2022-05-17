@@ -15,7 +15,6 @@
 
 #define BOWISBIN
 
-//ORB_SLAM2::System SLAM("/storage/emulated/0/ORBvoc.txt","/storage/emulated/0/TUM1.yaml",ORB_SLAM2::System::MONOCULAR,false);
 #ifdef BOWISBIN
 ORB_SLAM2::System SLAM("/storage/emulated/0/SLAM/VOC/ORBvoc.txt","/storage/emulated/0/SLAM/Calibration/mi6.yaml",ORB_SLAM2::System::MONOCULAR,false);
 #endif

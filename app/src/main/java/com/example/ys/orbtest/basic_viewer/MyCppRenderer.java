@@ -19,6 +19,6 @@ public class MyCppRenderer {
     private native void _draw();
     // Used to load the 'cpp_renderer' library on application startup.
     static {
-        System.loadLibrary("cpp_renderer");
+        System.loadLibrary("basic_renderer");
     }
 }
