@@ -12,3 +12,4 @@
 /app/.cxx
 app/CMakeLists.txt
 /openCVLibrary320/build
+app/src/main/jniLibs/arm64-v8a/libassimp.so

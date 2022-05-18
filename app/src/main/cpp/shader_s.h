@@ -5,6 +5,7 @@
 #ifndef ORB_SLAM_ANDROID_STUDIO_SHADER_S_H
 #define ORB_SLAM_ANDROID_STUDIO_SHADER_S_H
 
+#include <GLES3/gl3.h>
 #include "glm/glm.hpp"
 
 #include <string>

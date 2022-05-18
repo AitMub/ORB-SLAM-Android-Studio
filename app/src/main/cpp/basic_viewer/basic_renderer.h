@@ -10,32 +10,39 @@
 #include <android/asset_manager.h>
 #include <string>
 
+#include "./assimp/aabb.h"
+#include "./assimp/Importer.hpp"
+
 #include "../shader_s.h"
 #include "render_parameter.h"
 
-class basic_renderer {
-public:
-    // Initialize shaders and GL buffers
-    void Init(AAssetManager* _mgr);
+#include "model.h"
 
-    // Render the OpenGL buffers using the shader
+class BasicRenderer {
+public:
+    // Initialize shaders, Load default model, Set AAssetManager
+    void Init(AAssetManager * mgr);
+
+    // Render
     void Draw() const;
 
-    void OpenModel(const std::string& path);
+    // Load new model
+    bool LoadModel(const std::string& path);
+
+private:
+    Shader * p_my_shader_;
+
+    RenderParameter render_parameter_;
+
+    AAssetManager * mgr_;
+
+    const std::string default_model_path_ = "/storage/emulated/0/Models/bunny/bunny.obj";
+
+    Model model_;
 
     void SetMVPMatrix() const;
 
     void SetShaderParameters() const;
-
-private:
-    Shader * pMyShader;
-
-    GLuint VAO;
-    GLuint VBO;
-
-    RenderParameter renderParameter;
-
-    AAssetManager* mgr;
 };
 
 #endif //ORB_SLAM_ANDROID_STUDIO_BASIC_RENDERER_H

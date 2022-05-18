@@ -61,7 +61,7 @@ namespace g2o {
     // the old functions will be dropped
     /**
      * Initializes the structures for optimizing a portion of the graph specified by a subset of edges.
-     * Before calling it be sure to invoke marginalized() and fixed() to the vertices you want to include in the 
+     * Before calling it be sure to invoke marginalized() and fixed() to the vertices you want to include in the
      * schur complement or to set as fixed during the optimization.
      * @param eset: the subgraph to be optimized.
      * @returns false if somethings goes wrong
@@ -70,7 +70,7 @@ namespace g2o {
 
     /**
      * Initializes the structures for optimizing a portion of the graph specified by a subset of vertices.
-     * Before calling it be sure to invoke marginalized() and fixed() to the vertices you want to include in the 
+     * Before calling it be sure to invoke marginalized() and fixed() to the vertices you want to include in the
      * schur complement or to set as fixed during the optimization.
      * @param vset: the subgraph to be optimized.
      * @param level: is the level (in multilevel optimization)
@@ -80,7 +80,7 @@ namespace g2o {
 
     /**
      * Initializes the structures for optimizing the whole graph.
-     * Before calling it be sure to invoke marginalized() and fixed() to the vertices you want to include in the 
+     * Before calling it be sure to invoke marginalized() and fixed() to the vertices you want to include in the
      * schur complement or to set as fixed during the optimization.
      * @param level: is the level (in multilevel optimization)
      * @returns false if somethings goes wrong
@@ -259,7 +259,7 @@ namespace g2o {
     }
 
     /**
-     * update the estimate of the active vertices 
+     * update the estimate of the active vertices
      * @param update: the double vector containing the stacked
      * elements of the increments on the vertices.
      */
