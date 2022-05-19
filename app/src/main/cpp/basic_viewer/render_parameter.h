@@ -12,7 +12,7 @@ struct RenderParameter
 {
     // bing-phong parameters
     int specP = 15;
-    float specularStrength = 1.0f;
+    float specularStrength = 0.3f;
     float ambientStrength = 0.2f;
     float diffuseStrength = 1.0f;
     glm::vec3 defaultColor = glm::vec3(0.5f,0.5f,0.5f);
@@ -29,10 +29,12 @@ struct RenderParameter
     // camera
     glm::vec3 cameraPos = glm::vec3(0.0f, 0.0f, 3.0f);
     glm::vec3 cameraFront = glm::vec3(0.0f, 0.0f, -1.0f);
-    glm::vec3 cameraUp = glm::vec3(0.5f, 0.5f, 0.0f);
+    glm::vec3 cameraUp = glm::vec3(0.0f, 1.0f, 0.0f);
     const float zNear = 0.1f;
     const float zFar = 100.0f;
     const float fovDegree = 45.0;
+
+    // viewport
     int screenWidth = 2340;
     int screenHeight = 1080;
     // as projection matrix rarely changes, we can store it
