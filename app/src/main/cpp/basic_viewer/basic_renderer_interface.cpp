@@ -35,3 +35,22 @@ jint JNI_OnLoad(JavaVM* vm, void* reserved) {
     return JNI_VERSION_1_6;
 }
 }
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer_onParameterChanged(JNIEnv *env,
+                                                                           jobject thiz) {
+    jclass cpp_renderer_class = env->GetObjectClass(thiz);
+    jfieldID fid_parameter = env->GetFieldID(cpp_renderer_class, "parameter", "Lcom/example/ys/orbtest/entity/Parameter;");
+    //获得parameter的jobject、jclass
+    jobject parameter = (jobject)env->GetObjectField(thiz, fid_parameter);
+    jclass parameter_class = env->GetObjectClass(parameter);
+    //获得parameter的方法
+    jmethodID mid_getScreenHeight = env->GetMethodID(parameter_class, "getScreenHeight", "()I");
+    jmethodID mid_getScreenWidth = env->GetMethodID(parameter_class, "getScreenWidth", "()I");
+
+    //屏幕高度
+    int screenHeight = env->CallIntMethod(parameter, mid_getScreenHeight);
+    //屏幕宽度
+    int screenWidth = env->CallIntMethod(parameter, mid_getScreenHeight);
+
+}

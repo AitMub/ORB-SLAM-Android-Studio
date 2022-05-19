@@ -8,7 +8,7 @@
 /captures
 .externalNativeBuild
 /app/CMakeLists.txt
-/.idea
-/app/.cxx
+/.idea/
+/app/.cxx/
 app/CMakeLists.txt
-/openCVLibrary320/build
+/openCVLibrary320/build/
