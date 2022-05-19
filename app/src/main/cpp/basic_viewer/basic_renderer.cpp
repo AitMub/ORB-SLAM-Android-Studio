@@ -83,8 +83,8 @@ void BasicRenderer::Draw() const{
     model_.Draw(*p_my_shader_);
 }
 
-bool BasicRenderer::LoadModel(const std::string &path) {
-    model_.Load(path);
+bool BasicRenderer::LoadModel(const std::string & path) {
+    return model_.Load(path);
 }
 
 void BasicRenderer::SetMVPMatrix() const{
@@ -92,7 +92,7 @@ void BasicRenderer::SetMVPMatrix() const{
     glm::mat4 model = glm::mat4(1.0f);
     static int time = 0;
     float angle = time++;
-    model = glm::scale(model, glm::vec3(0.5f,0.5f,0.5f));
+    model = glm::scale(model, glm::vec3(10.0f,10.0f,10.0f));
     model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
     p_my_shader_->setMat4("model", model);
 

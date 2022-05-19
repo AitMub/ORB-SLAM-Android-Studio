@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.ys.orbtest.basic_viewer.BasicViewerActivity;
 import com.example.ys.orbtest.entity.Parameter;
 
+import java.util.Locale;
+
 public class ThreeDActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override

@@ -11,6 +11,7 @@
 
 unsigned int TextureFromFile(const char *path, const string &directory, bool gamma = false);
 
+// ----- Mesh -----
 void Mesh::Setup() {
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
@@ -37,7 +38,6 @@ void Mesh::Setup() {
     glBindVertexArray(0);
 }
 
-
 void Mesh::Draw(Shader shader) const{
     unsigned int diffuseNr = 1;
     unsigned int specularNr = 1;
@@ -63,17 +63,10 @@ void Mesh::Draw(Shader shader) const{
     glBindVertexArray(0);
 }
 
-bool Model::Load(string path){
+
+// ----- Model -----
+bool Model::Load(const string & path){
     Assimp::Importer importer;
-
-    std::ofstream out;
-    out.open("test_a3d.txt", std::ios::out);
-    if(out.is_open() == 0)
-    {
-        __android_log_print(ANDROID_LOG_ERROR, "debug", "open test failed");
-        return false;
-    }
-
 
     const aiScene * scene = importer.ReadFile(path,
                                               aiProcess_Triangulate |// Triangulate set all geometries to triangles

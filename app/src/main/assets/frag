@@ -36,3 +36,4 @@ void main()
 
    FragColor = vec4((ambient +  diffuse) * defaultColor +  highlight, 1.0);
 }
+//

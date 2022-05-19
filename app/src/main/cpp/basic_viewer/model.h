@@ -73,7 +73,7 @@ class Model{
 public:
     Model(){};
 
-    bool Load(string path);
+    bool Load(const string & path);
     void Draw(Shader shader) const;
 
 public:

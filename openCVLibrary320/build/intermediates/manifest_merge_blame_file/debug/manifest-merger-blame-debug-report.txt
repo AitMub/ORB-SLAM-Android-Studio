@@ -6,8 +6,8 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="8"
-8-->E:\git-workspace\ORB-SLAM-Android-Studio\openCVLibrary320\src\main\AndroidManifest.xml
+8-->C:\Users\Hugh\Downloads\ORB-SLAM Android-Studio\openCVLibrary320\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="21" />
-9-->E:\git-workspace\ORB-SLAM-Android-Studio\openCVLibrary320\src\main\AndroidManifest.xml
+9-->C:\Users\Hugh\Downloads\ORB-SLAM Android-Studio\openCVLibrary320\src\main\AndroidManifest.xml
 10
 11</manifest>
