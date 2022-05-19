@@ -4,6 +4,8 @@ import android.content.res.AssetManager;
 import android.opengl.GLES30;
 import android.opengl.GLSurfaceView;
 
+import com.example.ys.orbtest.entity.Parameter;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -14,8 +16,9 @@ import javax.microedition.khronos.opengles.GL10;
 public class MyGLRenderer implements GLSurfaceView.Renderer {
     final private MyCppRenderer mCppRenderer;
 
-    MyGLRenderer(AssetManager mgr) {
-        mCppRenderer = new MyCppRenderer(mgr);
+    MyGLRenderer(AssetManager mgr, Parameter parameter) {
+        mCppRenderer = new MyCppRenderer(mgr, parameter);
+        mCppRenderer.onParameterChanged();
     }
 
     @Override

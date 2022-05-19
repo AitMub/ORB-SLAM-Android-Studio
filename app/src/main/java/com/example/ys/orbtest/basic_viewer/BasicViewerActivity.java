@@ -8,6 +8,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.content.res.AssetManager;
+import android.util.Log;
+
+import com.example.ys.orbtest.entity.Parameter;
+
+import java.io.Serializable;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -38,7 +43,9 @@ public class BasicViewerActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        myGLSurfaceView = new MyGLSurfaceView(this,mgr);
+        Parameter parameter = (Parameter) getIntent().getSerializableExtra("data");
+        
+        myGLSurfaceView = new MyGLSurfaceView(this, mgr, parameter);
         setContentView(myGLSurfaceView);
     }
 

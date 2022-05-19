@@ -50,30 +50,37 @@
         android:required="false" />
 
     <application
+        android:requestLegacyExternalStorage="true"
         android:label="@string/app_name"
+        android:theme="@style/Theme.JniDemo">
+        <activity
+            android:name=".TestActivity"
+            android:exported="true" >
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
 
-        android:theme="@style/Theme.JniDemo" >
-
-        <activity android:name=".ThreeDActivity"
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".ThreeDActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".OrbTest"
+        <activity
+            android:name=".OrbTest"
+            android:configChanges="keyboardHidden|orientation"
             android:exported="true"
-            android:screenOrientation="landscape"
-            android:configChanges="keyboardHidden|orientation">
-        </activity>
-
-        <activity android:name=".basic_viewer.BasicViewerActivity"
+            android:screenOrientation="landscape"></activity>
+        <activity
+            android:name=".basic_viewer.BasicViewerActivity"
+            android:configChanges="keyboardHidden|orientation"
             android:exported="true"
-            android:screenOrientation="landscape"
-            android:configChanges="keyboardHidden|orientation">
-        </activity>
-
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>
