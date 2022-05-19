@@ -13,6 +13,7 @@
 std::unique_ptr<BasicRenderer> mRenderer;
 
 extern "C" {
+
 JNIEXPORT void JNICALL
 Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1init(JNIEnv *env, jobject instance, jobject assetManager) {
     AAssetManager* mgr = AAssetManager_fromJava(env, assetManager);
@@ -34,11 +35,10 @@ jint JNI_OnLoad(JavaVM* vm, void* reserved) {
     }
     return JNI_VERSION_1_6;
 }
-}
-extern "C"
+
 JNIEXPORT void JNICALL
-Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer_onParameterChanged(JNIEnv *env,
-                                                                           jobject thiz) {
+Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1onResolutionChanged(JNIEnv *env,
+                                                                              jobject thiz) {
     jclass cpp_renderer_class = env->GetObjectClass(thiz);
     jfieldID fid_parameter = env->GetFieldID(cpp_renderer_class, "parameter", "Lcom/example/ys/orbtest/entity/Parameter;");
     //获得parameter的jobject、jclass
@@ -48,9 +48,13 @@ Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer_onParameterChanged(JNIEn
     jmethodID mid_getScreenHeight = env->GetMethodID(parameter_class, "getScreenHeight", "()I");
     jmethodID mid_getScreenWidth = env->GetMethodID(parameter_class, "getScreenWidth", "()I");
 
-    //屏幕高度
     int screenHeight = env->CallIntMethod(parameter, mid_getScreenHeight);
-    //屏幕宽度
-    int screenWidth = env->CallIntMethod(parameter, mid_getScreenHeight);
+    int screenWidth = env->CallIntMethod(parameter, mid_getScreenWidth);
 
+    mRenderer->render_parameter_.screenHeight = screenHeight;
+    mRenderer->render_parameter_.screenWidth = screenWidth;
+    mRenderer->render_parameter_.projection = glm::perspective(glm::radians(mRenderer->render_parameter_.fovDegree),
+                             (float)screenWidth / (float)screenHeight,mRenderer->render_parameter_.zNear, mRenderer->render_parameter_.zFar);
 }
+
+}// End extern "C"

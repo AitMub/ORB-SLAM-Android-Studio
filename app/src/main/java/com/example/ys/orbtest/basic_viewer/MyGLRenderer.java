@@ -18,7 +18,6 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
 
     MyGLRenderer(AssetManager mgr, Parameter parameter) {
         mCppRenderer = new MyCppRenderer(mgr, parameter);
-        mCppRenderer.onParameterChanged();
     }
 
     @Override
@@ -30,6 +29,11 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
     @Override
     public void onSurfaceChanged(GL10 gl, int width, int height) {
         gl.glViewport(0, 0, width, height);
+        // change value in parameter
+        mCppRenderer.parameter.setScreenWidth(width);
+        mCppRenderer.parameter.setScreenHeight(height);
+        // pass change to cpp
+        mCppRenderer.onResolutionChanged();
     }
 
     @Override

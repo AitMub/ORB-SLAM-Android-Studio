@@ -33,13 +33,13 @@ struct RenderParameter
     const float zNear = 0.1f;
     const float zFar = 100.0f;
     const float fovDegree = 45.0;
-    int width = 2340;
-    int height = 1080;
+    int screenWidth = 2340;
+    int screenHeight = 1080;
     // as projection matrix rarely changes, we can store it
     // and recalculate it only if width or height changed
     glm::mat4 projection =
             glm::perspective(glm::radians(fovDegree),
-                             (float)width / (float)height,
+                             (float)screenWidth / (float)screenHeight,
                              zNear, zFar);
 };
 
