@@ -55,78 +55,67 @@ float vertices[] = {
         -0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
         -0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f
 };
-  
-
-void basic_renderer::Init(AAssetManager* _mgr){
-    mgr = _mgr;
-
-    pMyShader = new Shader("vert", "frag", mgr);
-    pMyShader->use();
 
 
+void BasicRenderer::Init(AAssetManager* mgr){
+    mgr_ = mgr;
+
+    // compile shader
+    p_my_shader_ = new Shader("vert", "frag", mgr_);
+    p_my_shader_->use();
+
+    // init
     glEnable(GL_DEPTH_TEST);
 
-
-    // allocate a VAO and a VBO
-    glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-    glBindVertexArray(VAO);
-
-    // bind attribute
-    // position
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6*sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-    // normal
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6*sizeof(float), (void*)(3*sizeof(float)));
-    glEnableVertexAttribArray(1);
+    // load default model
+    LoadModel(default_model_path_);
 }
 
 // renderer
-void basic_renderer::Draw() const{
+void BasicRenderer::Draw() const{
     glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 
-    pMyShader->use();
+    p_my_shader_->use();
 
     SetMVPMatrix();
     SetShaderParameters();
 
-    glBindVertexArray(VAO);
-    glDrawArrays(GL_TRIANGLES, 0, 36);
+    model_.Draw(*p_my_shader_);
 }
 
-void basic_renderer::SetMVPMatrix() const{
+bool BasicRenderer::LoadModel(const std::string &path) {
+    model_.Load(path);
+}
+
+void BasicRenderer::SetMVPMatrix() const{
     // model
     glm::mat4 model = glm::mat4(1.0f);
     static int time = 0;
     float angle = time++;
     model = glm::scale(model, glm::vec3(0.5f,0.5f,0.5f));
     model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
-    pMyShader->setMat4("model",model);
+    p_my_shader_->setMat4("model", model);
 
     // view
     glm::mat4 view = glm::mat4(1.0f);
-    view = glm::lookAt(renderParameter.cameraPos,
-                       renderParameter.cameraPos+renderParameter.cameraFront,
-                       renderParameter.cameraUp);
-    pMyShader->setMat4("view", view);
+    view = glm::lookAt(render_parameter_.cameraPos,
+                       render_parameter_.cameraPos + render_parameter_.cameraFront,
+                       render_parameter_.cameraUp);
+    p_my_shader_->setMat4("view", view);
 
     // projection
-    pMyShader->setMat4("projection", renderParameter.projection);
+    p_my_shader_->setMat4("projection", render_parameter_.projection);
 }
 
-void basic_renderer::SetShaderParameters() const {
+void BasicRenderer::SetShaderParameters() const {
     // pass uniform parameters
-    pMyShader->setInt("specP",renderParameter.specP);
-    pMyShader->setFloat("ambientStrength", renderParameter.ambientStrength);
-    pMyShader->setFloat("diffuseStrength", renderParameter.diffuseStrength);
-    pMyShader->setFloat("specularStrength", renderParameter.specularStrength);
+    p_my_shader_->setInt("specP", render_parameter_.specP);
+    p_my_shader_->setFloat("ambientStrength", render_parameter_.ambientStrength);
+    p_my_shader_->setFloat("diffuseStrength", render_parameter_.diffuseStrength);
+    p_my_shader_->setFloat("specularStrength", render_parameter_.specularStrength);
 
-    pMyShader->setVec3("defaultColor", renderParameter.defaultColor);
-    pMyShader->setVec3("lightColor", renderParameter.lightColor);
-    pMyShader->setVec3("lightPos", renderParameter.lightPos);
-    pMyShader->setVec3("viewPos", renderParameter.cameraPos);
+    p_my_shader_->setVec3("defaultColor", render_parameter_.defaultColor);
+    p_my_shader_->setVec3("lightColor", render_parameter_.lightColor);
+    p_my_shader_->setVec3("lightPos", render_parameter_.lightPos);
+    p_my_shader_->setVec3("viewPos", render_parameter_.cameraPos);
 }

@@ -1,12 +1,23 @@
 package com.example.ys.orbtest.basic_viewer;
+import android.Manifest;
+import android.app.Activity;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import android.content.res.AssetManager;
 import android.util.Log;
 
 import com.example.ys.orbtest.entity.Parameter;
 
 import java.io.Serializable;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class BasicViewerActivity extends AppCompatActivity {
@@ -20,6 +31,17 @@ public class BasicViewerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         mgr = getResources().getAssets();
+        
+        // read file test
+        try {
+            FileInputStream fileInputStream = new FileInputStream(new File("/storage/emulated/0/Models/bunny/bunny.obj"));
+            byte[] bytes=new byte[fileInputStream.available()];
+            fileInputStream.read(bytes);
+            String content=new String(bytes);
+            fileInputStream.close();
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
 
         Parameter parameter = (Parameter) getIntent().getSerializableExtra("data");
         
