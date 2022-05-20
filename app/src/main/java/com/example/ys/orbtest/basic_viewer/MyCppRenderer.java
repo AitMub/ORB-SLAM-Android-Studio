@@ -22,16 +22,15 @@ public class MyCppRenderer {
 
     private native void _init(AssetManager _mgr);
     private native void _draw();
-//<<<<<<< HEAD
+
     native void onParameterChanged();
     // Used to load the 'basic_renderer' library on application startup.
-    static {
-        System.loadLibrary("basic_renderer");
-    }
-//=======
-//
-//    // Used to load the 'BasicRenderer' library on application startup.
-//    static { System.loadLibrary("basic_renderer"); }
-//    static { System.loadLibrary("assimp"); }
-//>>>>>>> a98d679fcb64e96440603b9dc790b630226c8748
+//    static {
+//        System.loadLibrary("basic_renderer");
+//    }
+
+    // Used to load the 'BasicRenderer' library on application startup.
+    static { System.loadLibrary("basic_renderer"); }
+    static { System.loadLibrary("libassimp"); }
+
 }
