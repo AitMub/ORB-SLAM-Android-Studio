@@ -9,8 +9,49 @@
 #define STB_IMAGE_IMPLEMENTATION
 #include "../stb_image.h"
 
-unsigned int TextureFromFile(const char *path, const string &directory, bool gamma = false);
+unsigned int TextureFromFile(const char *path, const string &directory, bool gamma = false)
+{
+    string filename = string(path);
+    filename = directory + '/' + filename;
+    
+    unsigned int textureID;
+    glGenTextures(1, &textureID);
 
+    int width, height, nrComponents;
+    unsigned char *data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
+
+    if (data)
+    {
+        GLenum format;
+        if (nrComponents == 1)
+            format = GL_RED;
+        else if (nrComponents == 3)
+            format = GL_RGB;
+        else if (nrComponents == 4)
+            format = GL_RGBA;
+
+        glBindTexture(GL_TEXTURE_2D, textureID);
+        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+        stbi_image_free(data);
+    }
+    else
+    {
+        __android_log_print(ANDROID_LOG_ERROR, "debug", "stb error: failed to load %s", path);
+        stbi_image_free(data);
+    }
+
+    return textureID;
+}
+
+
+// ----- Mesh -----
 void Mesh::Setup() {
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
@@ -37,43 +78,44 @@ void Mesh::Setup() {
     glBindVertexArray(0);
 }
 
-
 void Mesh::Draw(Shader shader) const{
     unsigned int diffuseNr = 1;
     unsigned int specularNr = 1;
+
+    shader.setBool("hasMaterial", false);
+
     for(unsigned int i = 0; i < textures_.size(); i++)
     {
-        glActiveTexture(GL_TEXTURE0 + i); // 在绑定之前激活相应的纹理单元
-        // 获取纹理序号（diffuse_textureN 中的 N）
+        glActiveTexture(GL_TEXTURE0 + i);
+        shader.setBool("hasMaterial", true);
+
         string number;
         string name = textures_[i].type;
-        if(name == "texture_diffuse")
-            number = std::to_string(diffuseNr++);
-        else if(name == "texture_specular")
-            number = std::to_string(specularNr++);
 
-        shader.setFloat(("material." + name + number).c_str(), i);
+        if(name == "texture_diffuse")
+        {
+            number = std::to_string(diffuseNr++);
+        }
+        else if(name == "texture_specular")
+        {
+            number = std::to_string(specularNr++);
+        }
+
+        shader.setInt(("material." + name).c_str(), i);
         glBindTexture(GL_TEXTURE_2D, textures_[i].id);
     }
     glActiveTexture(GL_TEXTURE0);
 
-    // 绘制网格
+    // render
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, indices_.size(), GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
 }
 
-bool Model::Load(string path){
+
+// ----- Model -----
+bool Model::Load(const string & path){
     Assimp::Importer importer;
-
-    std::ofstream out;
-    out.open("test_a3d.txt", std::ios::out);
-    if(out.is_open() == 0)
-    {
-        __android_log_print(ANDROID_LOG_ERROR, "debug", "open test failed");
-        return false;
-    }
-
 
     const aiScene * scene = importer.ReadFile(path,
                                               aiProcess_Triangulate |// Triangulate set all geometries to triangles
@@ -86,6 +128,11 @@ bool Model::Load(string path){
         __android_log_print(ANDROID_LOG_ERROR, "debug", "assimp error: %s", importer.GetErrorString());
         return false;
     }
+
+    // record absolute path of model so as to load its textures
+    model_abs_directory_ = path;
+    unsigned int pos = model_abs_directory_.rfind('/');
+    model_abs_directory_.erase(model_abs_directory_.begin() + pos, model_abs_directory_.end());
 
     ProcessNode(scene->mRootNode, scene);
 
@@ -182,7 +229,7 @@ Mesh Model::ProcessMesh(aiMesh *mesh, const aiScene *scene){
         }
     }
 
-    // process materials
+    // materials
     if(mesh->mMaterialIndex >= 0)
     {
         aiMaterial * material = scene->mMaterials[mesh->mMaterialIndex];
@@ -203,58 +250,19 @@ Mesh Model::ProcessMesh(aiMesh *mesh, const aiScene *scene){
 
 vector<Texture> Model::LoadTextures(aiMaterial *mat, aiTextureType type, string typeName){
     vector<Texture> textures;
+
     for(unsigned int i = 0; i < mat->GetTextureCount(type); i++)
     {
         aiString str;
         mat->GetTexture(type, i, &str);
 
         Texture texture;
-        texture.id = TextureFromFile(str.C_Str(), directory);
+        texture.id = TextureFromFile(str.C_Str(), model_abs_directory_);
         texture.type = typeName;
         texture.path = str.C_Str();
 
         textures.push_back(texture);
     }
+
     return textures;
-}
-
-unsigned int TextureFromFile(const char *path, const string &directory, bool gamma)
-{
-    string filename = string(path);
-    filename = directory + '/' + filename;
-
-    unsigned int textureID;
-    glGenTextures(1, &textureID);
-
-    int width, height, nrComponents;
-    unsigned char *data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
-
-    if (data)
-    {
-        GLenum format;
-        if (nrComponents == 1)
-            format = GL_RED;
-        else if (nrComponents == 3)
-            format = GL_RGB;
-        else if (nrComponents == 4)
-            format = GL_RGBA;
-
-        glBindTexture(GL_TEXTURE_2D, textureID);
-        glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
-        glGenerateMipmap(GL_TEXTURE_2D);
-
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
-        stbi_image_free(data);
-    }
-    else
-    {
-        __android_log_print(ANDROID_LOG_ERROR, "debug", "stb error: failed to load %s", path);
-        stbi_image_free(data);
-    }
-
-    return textureID;
 }

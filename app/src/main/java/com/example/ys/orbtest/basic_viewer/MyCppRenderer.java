@@ -7,7 +7,7 @@ import com.example.ys.orbtest.entity.Parameter;
 public class MyCppRenderer {
     private AssetManager mgr;
 
-    private Parameter parameter;
+    public Parameter parameter;
 
     MyCppRenderer(AssetManager _mgr, Parameter parameter) {
         mgr = _mgr ;
@@ -20,17 +20,15 @@ public class MyCppRenderer {
 
     void init() { _init(mgr); }
 
+    void onResolutionChanged(){ _onResolutionChanged();}
+
     private native void _init(AssetManager _mgr);
     private native void _draw();
 
-    native void onParameterChanged();
-    // Used to load the 'basic_renderer' library on application startup.
-//    static {
-//        System.loadLibrary("basic_renderer");
-//    }
+    private native void _onResolutionChanged();
 
     // Used to load the 'BasicRenderer' library on application startup.
     static { System.loadLibrary("basic_renderer"); }
-    static { System.loadLibrary("libassimp"); }
+    static { System.loadLibrary("assimp"); }
 
 }

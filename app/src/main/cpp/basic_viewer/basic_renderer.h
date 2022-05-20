@@ -18,6 +18,12 @@
 
 #include "model.h"
 
+// friend function forward declaration
+extern "C"{
+JNIEXPORT void JNICALL Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1onResolutionChanged(JNIEnv *env, jobject thiz);
+
+};
+
 class BasicRenderer {
 public:
     // Initialize shaders, Load default model, Set AAssetManager
@@ -29,6 +35,9 @@ public:
     // Load new model
     bool LoadModel(const std::string& path);
 
+    friend JNIEXPORT void JNICALL Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1onResolutionChanged(JNIEnv *env, jobject thiz);
+
+
 private:
     Shader * p_my_shader_;
 
@@ -36,7 +45,7 @@ private:
 
     AAssetManager * mgr_;
 
-    const std::string default_model_path_ = "/storage/emulated/0/Models/bunny/bunny.obj";
+    const std::string default_model_path_ = "/data/data/com.example.ys.orbtest.debug/files/obj/gun/gun.obj";
 
     Model model_;
 

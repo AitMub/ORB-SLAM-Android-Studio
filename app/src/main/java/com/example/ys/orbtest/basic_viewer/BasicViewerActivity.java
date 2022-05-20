@@ -33,15 +33,16 @@ public class BasicViewerActivity extends AppCompatActivity {
         mgr = getResources().getAssets();
         
         // read file test
-        try {
-            FileInputStream fileInputStream = new FileInputStream(new File("/storage/emulated/0/Models/bunny/bunny.obj"));
-            byte[] bytes=new byte[fileInputStream.available()];
-            fileInputStream.read(bytes);
-            String content=new String(bytes);
-            fileInputStream.close();
-        }catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            FileInputStream fileInputStream = new FileInputStream(new File("/data/data/com.example.ys.orbtest.debug/files/b.txt"));
+//            byte[] bytes=new byte[fileInputStream.available()];
+//            fileInputStream.read(bytes);
+//            String content=new String(bytes);
+//            Log.d("tag", content);
+//            fileInputStream.close();
+//        }catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         Parameter parameter = (Parameter) getIntent().getSerializableExtra("data");
         

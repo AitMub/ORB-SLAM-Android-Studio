@@ -73,12 +73,12 @@ class Model{
 public:
     Model(){};
 
-    bool Load(string path);
+    bool Load(const string & path);
     void Draw(Shader shader) const;
 
-public:
+private:
     vector<Mesh> mesh_vec_;
-    string directory;
+    string model_abs_directory_;
 
     void ProcessNode(aiNode *node, const aiScene *scene);
     Mesh ProcessMesh(aiMesh *mesh, const aiScene *scene);
