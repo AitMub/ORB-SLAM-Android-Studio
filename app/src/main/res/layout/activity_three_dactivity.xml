@@ -27,6 +27,8 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:text="3D"
+            android:textColor="@color/white"
+            android:background="@color/colorPrimary"
             android:textSize="@dimen/buttonFontSize"/>
 
         <Button
@@ -35,7 +37,9 @@
             android:layout_weight="1"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
+            android:background="@color/colorPrimary"
             android:layout_marginRight="0dp"
+            android:textColor="@color/white"
             android:text="AR"
             android:textSize="@dimen/buttonFontSize"/>
 

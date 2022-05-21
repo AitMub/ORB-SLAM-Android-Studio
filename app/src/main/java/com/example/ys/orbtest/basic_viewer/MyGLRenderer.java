@@ -51,6 +51,24 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         return shader;
     }
 
+    public void setModelPath(String path){
+        mCppRenderer.setModelPath(path);
+    }
+
+    public void setPattern(String pattern){
+        mCppRenderer.setPattern(pattern);
+    }
+
+    public void setSunX(int progress, int max){
+        mCppRenderer.setSunX(progress, max);
+    }
+
+    public void setSunY(int progress, int max){
+        mCppRenderer.setSunY(progress, max);
+    }
+    public void setSunZ(int progress, int max){
+        mCppRenderer.setSunZ(progress, max);
+    }
 
     private static class Triangle {
         private FloatBuffer vertexBuffer;

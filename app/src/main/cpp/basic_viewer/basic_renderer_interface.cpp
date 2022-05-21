@@ -57,4 +57,45 @@ Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1onResolutionChanged(JN
                              (float)screenWidth / (float)screenHeight,mRenderer->render_parameter_.zNear, mRenderer->render_parameter_.zFar);
 }
 
+JNIEXPORT void JNICALL
+Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setModelPath(JNIEnv *env, jobject thiz,
+                                                                       jstring path) {
+    const char* str;
+    str = env->GetStringUTFChars(path, NULL);
+
+    mRenderer->LoadModel((string) str);
+}
+
+JNIEXPORT void JNICALL
+Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setPattern(JNIEnv *env, jobject thiz,
+                                                                     jstring pattern) {
+    const char* str;
+    str = env->GetStringUTFChars(pattern, NULL);
+    //模式名称
+    string pattern_str = str;
+
+}
+
+JNIEXPORT void JNICALL
+Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunX(JNIEnv *env, jobject thiz,
+                                                                  jint progress, jint max) {
+    //progress表示拖动条的当前值， max表示拖动条的最大值
+    int progressX = progress;
+    int maxX = max;
+}
+
+JNIEXPORT void JNICALL
+Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunY(JNIEnv *env, jobject thiz,
+                                                                  jint progress, jint max) {
+    int progressY = progress;
+    int maxY = max;
+}
+
+JNIEXPORT void JNICALL
+Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunZ(JNIEnv *env, jobject thiz,
+                                                                  jint progress, jint max) {
+    int progressZ = progress;
+    int maxZ = max;
+}
+
 }// End extern "C"
