@@ -14,4 +14,24 @@ public class MyGLSurfaceView extends GLSurfaceView{
         myGLRenderer = new MyGLRenderer(mgr, parameter);
         setRenderer(myGLRenderer);
     }
+
+    public void setModelPath(String path){
+        myGLRenderer.setModelPath(path);
+    }
+
+    public void setPattern(String pattern){
+        myGLRenderer.setPattern(pattern);
+    }
+
+    public void setSunX(int progress, int max){
+        myGLRenderer.setSunX(progress, max);
+    }
+
+    public void setSunY(int progress, int max){
+        myGLRenderer.setSunY(progress, max);
+    }
+
+    public void setSunZ(int progress, int max){
+        myGLRenderer.setSunZ(progress, max);
+    }
 }
