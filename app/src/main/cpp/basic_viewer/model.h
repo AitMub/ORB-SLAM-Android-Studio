@@ -21,22 +21,10 @@ using std::vector;
 #include "../shader_s.h"
 
 
-const int MAX_BONE_INFLUENCE = 4;
-
-
 struct Vertex {
     glm::vec3 position;
     glm::vec3 normal;
     glm::vec2 texCoords;
-
-/*    // tangent
-    glm::vec3 Tangent;
-    // bitangent
-    glm::vec3 Bitangent;
-    //bone indexes which will influence this vertex
-    int m_BoneIDs[MAX_BONE_INFLUENCE];
-    //weights from each bone
-    float m_Weights[MAX_BONE_INFLUENCE];*/
 };
 
 
@@ -60,7 +48,7 @@ public:
     vector<Texture> textures_;
 
     void Setup();
-    void Draw(Shader shader) const;
+    void Draw(Shader shader, bool is_shadow) const;
 
 private:
     unsigned int VAO;
@@ -74,7 +62,7 @@ public:
     Model(){};
 
     bool Load(const string & path);
-    void Draw(Shader shader) const;
+    void Draw(Shader shader, bool is_shadow) const;
 
 private:
     vector<Mesh> mesh_vec_;

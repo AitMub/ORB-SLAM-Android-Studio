@@ -15,27 +15,96 @@
 void BasicRenderer::Init(AAssetManager* mgr){
     mgr_ = mgr;
 
-    // compile shader
-    p_my_shader_ = new Shader("vert", "frag", mgr_);
-    p_my_shader_->use();
-
     // init opengl parameter
     glEnable(GL_DEPTH_TEST);
+
+    // compile shader
+    p_light_shader_ = new Shader("vert", "frag", mgr_);
+    p_shadow_shader_ = new Shader("shadow_vert", "shadow_frag", mgr_);
+
+    // init shadow map
+    ShadowInit();
 
     // load default model
     LoadModel(default_model_path_);
 }
 
+void BasicRenderer::ShadowInit() {
+
+    glGenTextures(1, &depthTextureID_);
+    glBindTexture(GL_TEXTURE_2D, depthTextureID_);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+
+
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT16,
+                 render_parameter_.shadowTextureWidth, render_parameter_.shadowTextureHeight,
+                 0, GL_DEPTH_COMPONENT, GL_UNSIGNED_SHORT, NULL);
+
+    glBindTexture(GL_TEXTURE_2D, 0);
+
+    GLint defaultFramebuffer = 0;
+    glGetIntegerv(GL_FRAMEBUFFER_BINDING, &defaultFramebuffer);
+
+    glGenFramebuffers(1, &FBOShadow_);
+    glBindFramebuffer(GL_FRAMEBUFFER, FBOShadow_);
+
+    GLenum none = GL_NONE;
+    glDrawBuffers(1, &none);
+    glReadBuffer(GL_NONE);
+
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depthTextureID_, 0);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, depthTextureID_);
+
+    if(GL_FRAMEBUFFER_COMPLETE != glCheckFramebufferStatus(GL_FRAMEBUFFER))
+    {
+        GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+        __android_log_print(ANDROID_LOG_ERROR, "debug", "FRAME_BUFFER error, %d, %d", status);
+    }
+    else
+    {
+        __android_log_print(ANDROID_LOG_ERROR, "debug", "FRAME_BUFFER OK");
+    }
+
+    glBindFramebuffer(GL_FRAMEBUFFER, defaultFramebuffer);
+}
 
 void BasicRenderer::Draw() const{
-    glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+    DrawShadowMap();
+    DrawModel();
+}
 
-    p_my_shader_->use();
+void BasicRenderer::DrawShadowMap() const {
+    glViewport(0, 0, render_parameter_.shadowTextureWidth, render_parameter_.shadowTextureHeight);
+    glBindFramebuffer(GL_FRAMEBUFFER, FBOShadow_);
+    glClear(GL_DEPTH_BUFFER_BIT);
+
+    // render
+    p_shadow_shader_->use();
+    p_shadow_shader_->setMat4("light_space", render_parameter_.lightSpace);
+
+    model_.Draw(*p_shadow_shader_, true);
+
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+}
+
+void BasicRenderer::DrawModel() const{
+    glViewport(0, 0, render_parameter_.screenWidth, render_parameter_.screenHeight);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClearColor(0.8f,0.8f,0.8f,1.0f);
+
+    p_light_shader_->use();
 
     SetMVPMatrix();
     SetShaderParameters();
 
-    model_.Draw(*p_my_shader_);
+    model_.Draw(*p_light_shader_, false);
 }
 
 bool BasicRenderer::LoadModel(const std::string & path) {
@@ -46,31 +115,38 @@ void BasicRenderer::SetMVPMatrix() const{
     // model
     glm::mat4 model = glm::mat4(1.0f);
     static int time = 0;
-    float angle = time++;
-    model = glm::scale(model, glm::vec3(3.0f,3.0f,3.0f));
-    model = glm::rotate(model, glm::radians(angle), glm::vec3(0.0f, 1.0f, 0.0f));
-    p_my_shader_->setMat4("model", model);
+    float angle = time;
+    model = glm::scale(model, glm::vec3(0.5f,0.5f,0.5f));
+    model = glm::rotate(model, glm::radians(angle/2), glm::vec3(0.0f, 1.0f, 0.0f));
+    model = glm::translate(model, glm::vec3(0,-4,0));
+    p_light_shader_->setMat4("model", model);
 
     // view
     glm::mat4 view = glm::mat4(1.0f);
     view = glm::lookAt(render_parameter_.cameraPos,
                        render_parameter_.cameraPos + render_parameter_.cameraFront,
                        render_parameter_.cameraUp);
-    p_my_shader_->setMat4("view", view);
+    p_light_shader_->setMat4("view", view);
 
     // projection
-    p_my_shader_->setMat4("projection", render_parameter_.projection);
+    p_light_shader_->setMat4("projection", render_parameter_.projection);
 }
 
 void BasicRenderer::SetShaderParameters() const {
     // pass uniform parameters
-    p_my_shader_->setInt("specP", render_parameter_.specP);
-    p_my_shader_->setFloat("ambientStrength", render_parameter_.ambientStrength);
-    p_my_shader_->setFloat("diffuseStrength", render_parameter_.diffuseStrength);
-    p_my_shader_->setFloat("specularStrength", render_parameter_.specularStrength);
+    p_light_shader_->setInt("specP", render_parameter_.specP);
+    p_light_shader_->setFloat("ambientStrength", render_parameter_.ambientStrength);
+    p_light_shader_->setFloat("diffuseStrength", render_parameter_.diffuseStrength);
+    p_light_shader_->setFloat("specularStrength", render_parameter_.specularStrength);
 
-    p_my_shader_->setVec3("defaultColor", render_parameter_.defaultColor);
-    p_my_shader_->setVec3("lightColor", render_parameter_.lightColor);
-    p_my_shader_->setVec3("lightPos", render_parameter_.lightPos);
-    p_my_shader_->setVec3("viewPos", render_parameter_.cameraPos);
+    p_light_shader_->setVec3("defaultColor", render_parameter_.defaultColor);
+    p_light_shader_->setVec3("lightColor", render_parameter_.lightColor);
+    p_light_shader_->setVec3("lightPos", render_parameter_.lightPos);
+    p_light_shader_->setVec3("viewPos", render_parameter_.cameraPos);
+
+    p_light_shader_->setInt("depthTexture", 0);
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, depthTextureID_);
+
+    p_shadow_shader_->setMat4("light_space", render_parameter_.lightSpace);
 }
