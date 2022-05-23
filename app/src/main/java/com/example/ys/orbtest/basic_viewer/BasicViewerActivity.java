@@ -19,6 +19,7 @@ import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -35,11 +36,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class BasicViewerActivity extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener {
+public class BasicViewerActivity extends AppCompatActivity implements View.OnClickListener, SeekBar.OnSeekBarChangeListener, View.OnTouchListener {
 
     public MyGLSurfaceView myGLSurfaceView;
 
     public AssetManager mgr;
+
+    /** 记录按下的坐标点（起始点）**/
+    private float mPosX = 0;
+    private float mPosY = 0;
+    /** 记录移动后抬起坐标点（终点）**/
+    private float mCurPosX = 0;
+    private float mCurPosY = 0;
+    //第一根手指的点
+    private float mFirstTouchX;
+    private float mFirstTouchY;
+    //第二根手指的点
+    private float mSecondTouchX;
+    private float mSecondTouchY;
+    private double firstPointerLength;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,13 +81,14 @@ public class BasicViewerActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_basic_viewer);
 
         LinearLayout threeDViewArea = findViewById(R.id.ThreeDViewArea);
+        myGLSurfaceView.setOnTouchListener(this);
         threeDViewArea.addView(myGLSurfaceView);
 
         findViewById(R.id.pickFIle).setOnClickListener(this);
 
-        SeekBar barX = findViewById(R.id.barX);
-        SeekBar barY = findViewById(R.id.barY);
-        SeekBar barZ = findViewById(R.id.barZ);
+        SeekBar barX = findViewById(R.id.barHeight);
+        SeekBar barY = findViewById(R.id.barRotation);
+        SeekBar barZ = findViewById(R.id.barRadius);
         barX.setOnSeekBarChangeListener(this);
         barY.setOnSeekBarChangeListener(this);
         barZ.setOnSeekBarChangeListener(this);
@@ -139,14 +156,14 @@ public class BasicViewerActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
         switch (seekBar.getId()){
-            case R.id.barX:
-                myGLSurfaceView.setSunX(progress, seekBar.getMax());
+            case R.id.barHeight:
+                myGLSurfaceView.setSunHeight(progress, seekBar.getMax());
                 break;
-            case R.id.barY:
-                myGLSurfaceView.setSunY(progress, seekBar.getMax());
+            case R.id.barRotation:
+                myGLSurfaceView.setSunRotation(progress, seekBar.getMax());
                 break;
-            case R.id.barZ:
-                myGLSurfaceView.setSunZ(progress, seekBar.getMax());
+            case R.id.barRadius:
+                myGLSurfaceView.setSunRadius(progress, seekBar.getMax());
                 break;
         }
     }
@@ -271,6 +288,76 @@ public class BasicViewerActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
 
+    }
+
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+
+        //滑动
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                mPosX = event.getX();
+                mPosY = event.getY();
+                break;
+            case MotionEvent.ACTION_MOVE:
+                mCurPosX = event.getX();
+                mCurPosY = event.getY();
+                if(Math.abs(mCurPosX - mPosX)< 1 && Math.abs(mCurPosY - mPosY) < 1){
+                    return false;
+                }
+                myGLSurfaceView.passVector(mCurPosX - mPosX, mCurPosY - mPosY);
+//                Log.d("zjh",  "(" + (mCurPosX - mPosX) + ", " + (mCurPosY - mPosY) + ")");
+                break;
+            case MotionEvent.ACTION_UP:
+                mCurPosX = event.getX();
+                mCurPosY = event.getY();
+                if(Math.abs(mCurPosX - mPosX)< 1 && Math.abs(mCurPosY - mPosY) < 1){
+                    return false;
+                }
+                break;
+        }
+
+        //缩放
+        switch (event.getActionMasked()){
+                case MotionEvent.ACTION_DOWN:
+                    //获取第一个点（A点）的位置
+                    mFirstTouchX = event.getX();
+                    mFirstTouchY = event.getY();
+                    break;
+                case MotionEvent.ACTION_POINTER_DOWN:
+                    if(event.getActionIndex() == 1){
+                        //获取第二个点（B点）的位置
+                        mSecondTouchX = event.getX(1);
+                        mSecondTouchY = event.getY(1);
+                        //根据两点的位置获取两个触摸点之间的距离（AB）
+                        float firstLengthX = Math.abs(mFirstTouchX - mSecondTouchX);
+                        float firstLengthY = Math.abs(mFirstTouchY - mSecondTouchY);
+                        firstPointerLength = Math.sqrt(Math.pow(firstLengthX, 2) + Math.pow(firstLengthY, 2));
+                    }
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    if(event.getPointerCount() >= 2){
+                        //获取第一个点（A‘）的位置
+                        float firstX = event.getX(0);
+                        float firstY = event.getY(0);
+
+                        //获取第二个点（B‘）的位置
+                        float secondX = event.getX(1);
+                        float secondY = event.getY(1);
+
+                        //计算两点之间的距离（A'B'）
+                        float secondLengthX = Math.abs(firstX - secondX);
+                        float secondLengthY = Math.abs(firstY - secondY);
+                        double secondPointerLength = Math.sqrt(Math.pow(secondLengthX, 2) + Math.pow(secondLengthY, 2));
+                        //缩放
+//                        Log.d("zjh",  " "+ (secondPointerLength / firstPointerLength));
+                        myGLSurfaceView.zoom(secondPointerLength / firstPointerLength);
+                    }
+                    break;
+            }
+
+
+        return true;
     }
 }
 

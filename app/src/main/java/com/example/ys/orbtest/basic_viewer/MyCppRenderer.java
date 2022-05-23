@@ -30,17 +30,29 @@ public class MyCppRenderer {
         _setPattern(pattern);
     }
 
-    public void setSunX(int progress, int max){
-        _setSunX(progress, max);
+    public void setSunHeight(int progress, int max){
+        _setSunHeight(progress, max);
     }
 
-    public void setSunY(int progress, int max){
-        _setSunY(progress, max);
+    public void setSunRotation(int progress, int max){
+        _setSunRotation(progress, max);
     }
 
-    public void setSunZ(int progress, int max){
-        _setSunY(progress, max);
+    public void setSunRadius(int progress, int max){
+        _setSunRadius(progress, max);
     }
+
+    public void passVector(float x, float y) {
+        _passVector(x, y);
+    }
+
+    public void zoom(double ratio) {
+        _zoom(ratio);
+    }
+
+    private native void _zoom(double ratio);
+
+    private native void _passVector(float x, float y);
 
     private native void _init(AssetManager _mgr);
     private native void _draw();
@@ -51,12 +63,13 @@ public class MyCppRenderer {
 
     private native void _setPattern(String pattern);
 
-    private native void _setSunX(int progress, int max);
-    private native void _setSunY(int progress, int max);
-    private native void _setSunZ(int progress, int max);
+    private native void _setSunHeight(int progress, int max);
+    private native void _setSunRotation(int progress, int max);
+    private native void _setSunRadius(int progress, int max);
 
     // Used to load the 'BasicRenderer' library on application startup.
     static { System.loadLibrary("basic_renderer"); }
     static { System.loadLibrary("assimp"); }
+
 
 }

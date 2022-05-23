@@ -64,6 +64,8 @@ Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setModelPath(JNIEnv *e
     str = env->GetStringUTFChars(path, NULL);
 
     mRenderer->LoadModel((string) str);
+
+    env->ReleaseStringUTFChars(path, str);
 }
 
 JNIEXPORT void JNICALL
@@ -74,10 +76,12 @@ Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setPattern(JNIEnv *env
     //模式名称
     string pattern_str = str;
 
+    env->ReleaseStringUTFChars(pattern, str);
+
 }
 
 JNIEXPORT void JNICALL
-Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunX(JNIEnv *env, jobject thiz,
+Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunHeight(JNIEnv *env, jobject thiz,
                                                                   jint progress, jint max) {
     //progress表示拖动条的当前值， max表示拖动条的最大值
     int progressX = progress;
@@ -85,17 +89,33 @@ Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunX(JNIEnv *env, j
 }
 
 JNIEXPORT void JNICALL
-Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunY(JNIEnv *env, jobject thiz,
+Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunRotation(JNIEnv *env, jobject thiz,
                                                                   jint progress, jint max) {
     int progressY = progress;
     int maxY = max;
 }
 
 JNIEXPORT void JNICALL
-Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunZ(JNIEnv *env, jobject thiz,
+Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunRadius(JNIEnv *env, jobject thiz,
                                                                   jint progress, jint max) {
     int progressZ = progress;
     int maxZ = max;
+}
+
+JNIEXPORT void JNICALL
+Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1passVector(JNIEnv *env, jobject thiz,
+                                                                     jfloat x, jfloat y) {
+    //移动向量，y向下为正，x向右正
+    float vector_x = x;
+    float vector_y = y;
+
+}
+
+JNIEXPORT void JNICALL
+Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1zoom(JNIEnv *env, jobject thiz,
+                                                               jdouble ratio) {
+    //缩放比例
+    double zoom_ratio = ratio;
 }
 
 }// End extern "C"

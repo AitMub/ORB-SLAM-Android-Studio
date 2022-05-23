@@ -59,15 +59,23 @@ public class MyGLRenderer implements GLSurfaceView.Renderer {
         mCppRenderer.setPattern(pattern);
     }
 
-    public void setSunX(int progress, int max){
-        mCppRenderer.setSunX(progress, max);
+    public void setSunHeight(int progress, int max){
+        mCppRenderer.setSunHeight(progress, max);
     }
 
-    public void setSunY(int progress, int max){
-        mCppRenderer.setSunY(progress, max);
+    public void setSunRotation(int progress, int max){
+        mCppRenderer.setSunRotation(progress, max);
     }
-    public void setSunZ(int progress, int max){
-        mCppRenderer.setSunZ(progress, max);
+    public void setSunRadius(int progress, int max){
+        mCppRenderer.setSunRadius(progress, max);
+    }
+
+    public void passVector(float x, float y) {
+        mCppRenderer.passVector(x, y);
+    }
+
+    public void zoom(double ratio) {
+        mCppRenderer.zoom(ratio);
     }
 
     private static class Triangle {

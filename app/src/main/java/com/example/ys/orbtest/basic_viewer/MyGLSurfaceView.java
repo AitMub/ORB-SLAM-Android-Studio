@@ -23,15 +23,23 @@ public class MyGLSurfaceView extends GLSurfaceView{
         myGLRenderer.setPattern(pattern);
     }
 
-    public void setSunX(int progress, int max){
-        myGLRenderer.setSunX(progress, max);
+    public void setSunHeight(int progress, int max){
+        myGLRenderer.setSunHeight(progress, max);
     }
 
-    public void setSunY(int progress, int max){
-        myGLRenderer.setSunY(progress, max);
+    public void setSunRotation(int progress, int max){
+        myGLRenderer.setSunRotation(progress, max);
     }
 
-    public void setSunZ(int progress, int max){
-        myGLRenderer.setSunZ(progress, max);
+    public void setSunRadius(int progress, int max){
+        myGLRenderer.setSunRadius(progress, max);
+    }
+
+    public void passVector(float x, float y) {
+        myGLRenderer.passVector(x, y);
+    }
+
+    public void zoom(double ratio) {
+        myGLRenderer.zoom(ratio);
     }
 }
