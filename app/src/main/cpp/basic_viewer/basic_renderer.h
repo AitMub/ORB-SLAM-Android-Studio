@@ -12,6 +12,7 @@
 
 #include "./assimp/aabb.h"
 #include "./assimp/Importer.hpp"
+#include "../glm/gtc/matrix_transform.hpp"
 
 #include "../shader_s.h"
 #include "render_parameter.h"
@@ -35,21 +36,29 @@ public:
     // Load new model
     bool LoadModel(const std::string& path);
 
+    // friend functions
     friend JNIEXPORT void JNICALL Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1onResolutionChanged(JNIEnv *env, jobject thiz);
 
 
 private:
-    Shader * p_my_shader_;
+    Shader * p_light_shader_;
+    Shader * p_shadow_shader_;
 
     RenderParameter render_parameter_;
 
     AAssetManager * mgr_;
 
-//    const std::string default_model_path_ = "/data/data/com.example.ys.orbtest.debug/files/obj/gun/gun.obj";
-//    const std::string default_model_path_ = "/storage/emulated/0/Download/obj/bunny/bunny.obj";
-    const std::string default_model_path_ = "/storage/emulated/0/Download/obj/gun/gun.obj";
+    const std::string default_model_path_ = "/data/data/com.example.ys.orbtest.debug/files/obj/tower/tower.obj";
 
     Model model_;
+
+    GLuint FBOShadow_;
+    GLuint depthTextureID_;
+
+    void ShadowInit();
+
+    void DrawShadowMap() const;
+    void DrawModel() const;
 
     void SetMVPMatrix() const;
 

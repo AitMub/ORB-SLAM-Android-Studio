@@ -78,7 +78,16 @@ void Mesh::Setup() {
     glBindVertexArray(0);
 }
 
-void Mesh::Draw(Shader shader) const{
+void Mesh::Draw(Shader shader, bool is_shadow) const{
+    if(is_shadow)
+    {
+        // render
+        glBindVertexArray(VAO);
+        glDrawElements(GL_TRIANGLES, indices_.size(), GL_UNSIGNED_INT, 0);
+        glBindVertexArray(0);
+        return;
+    }
+
     unsigned int diffuseNr = 1;
     unsigned int specularNr = 1;
 
@@ -101,10 +110,10 @@ void Mesh::Draw(Shader shader) const{
             number = std::to_string(specularNr++);
         }
 
-        shader.setInt(("material." + name).c_str(), i);
+        shader.setInt(("material." + name).c_str(), i + 1);
+        glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, textures_[i].id);
     }
-    glActiveTexture(GL_TEXTURE0);
 
     // render
     glBindVertexArray(VAO);
@@ -147,10 +156,10 @@ bool Model::Load(const string & path){
 }
 
 
-void Model::Draw(Shader shader) const{
+void Model::Draw(Shader shader, bool is_shadow) const{
     for(unsigned int i = 0; i < mesh_vec_.size(); i++)
     {
-        mesh_vec_[i].Draw(shader);
+        mesh_vec_[i].Draw(shader, is_shadow);
     }
 }
 
@@ -199,17 +208,6 @@ Mesh Model::ProcessMesh(aiMesh *mesh, const aiScene *scene){
             vec.x = mesh->mTextureCoords[0][i].x;
             vec.y = mesh->mTextureCoords[0][i].y;
             vertex.texCoords = vec;
-
-/*            // tangent
-            v.x = mesh->mTangents[i].x;
-            v.y = mesh->mTangents[i].y;
-            v.z = mesh->mTangents[i].z;
-            vertex.Tangent = v;
-            // bitangent
-            v.x = mesh->mBitangents[i].x;
-            v.y = mesh->mBitangents[i].y;
-            v.z = mesh->mBitangents[i].z;
-            vertex.Bitangent = v;*/
         }
         else
         {
