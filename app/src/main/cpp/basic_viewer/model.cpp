@@ -78,7 +78,7 @@ void Mesh::Setup() {
     glBindVertexArray(0);
 }
 
-void Mesh::Draw(Shader shader, bool is_shadow) const{
+void Mesh::Draw(Shader shader, bool is_shadow, GLenum render_mode) const{
     if(is_shadow)
     {
         // render
@@ -117,7 +117,8 @@ void Mesh::Draw(Shader shader, bool is_shadow) const{
 
     // render
     glBindVertexArray(VAO);
-    glDrawElements(GL_TRIANGLES, indices_.size(), GL_UNSIGNED_INT, 0);
+    glDrawElements(render_mode, indices_.size(), GL_UNSIGNED_INT, 0);
+    // glDrawElements(GL_LINE_STRIP, indices_.size(), GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
 }
 
@@ -159,7 +160,7 @@ bool Model::Load(const string & path){
 void Model::Draw(Shader shader, bool is_shadow) const{
     for(unsigned int i = 0; i < mesh_vec_.size(); i++)
     {
-        mesh_vec_[i].Draw(shader, is_shadow);
+        mesh_vec_[i].Draw(shader, is_shadow, render_mode_);
     }
 }
 

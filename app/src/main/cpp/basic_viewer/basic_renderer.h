@@ -13,6 +13,8 @@
 #include "./assimp/aabb.h"
 #include "./assimp/Importer.hpp"
 #include "../glm/gtc/matrix_transform.hpp"
+#include "../glm/vec3.hpp"
+#include "../glm/gtx/transform.hpp"
 
 #include "../shader_s.h"
 #include "render_parameter.h"
@@ -22,7 +24,13 @@
 // friend function forward declaration
 extern "C"{
 JNIEXPORT void JNICALL Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1onResolutionChanged(JNIEnv *env, jobject thiz);
-
+JNIEXPORT void JNICALL Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setModelPath(JNIEnv *env, jobject thiz, jstring path);
+JNIEXPORT void JNICALL Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setPattern(JNIEnv *env, jobject thiz, jstring pattern);
+JNIEXPORT void JNICALL Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunHeight(JNIEnv *env, jobject thiz, jint progress, jint max);
+JNIEXPORT void JNICALL Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunRotation(JNIEnv *env, jobject thiz, jint progress, jint max);
+JNIEXPORT void Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunRadius(JNIEnv *env, jobject thiz, jint progress, jint max);
+JNIEXPORT void JNICALL Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1passVector(JNIEnv *env, jobject thiz, jfloat x, jfloat y);
+JNIEXPORT void JNICALL Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1zoom(JNIEnv *env, jobject thiz, jdouble ratio);
 };
 
 class BasicRenderer {
@@ -38,7 +46,13 @@ public:
 
     // friend functions
     friend JNIEXPORT void JNICALL Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1onResolutionChanged(JNIEnv *env, jobject thiz);
-
+    friend JNIEXPORT void JNICALL Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setModelPath(JNIEnv *env, jobject thiz, jstring path);
+    friend JNIEXPORT void JNICALL Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setPattern(JNIEnv *env, jobject thiz, jstring pattern);
+    friend JNIEXPORT void JNICALL Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunHeight(JNIEnv *env, jobject thiz, jint progress, jint max);
+    friend JNIEXPORT void JNICALL Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunRotation(JNIEnv *env, jobject thiz, jint progress, jint max);
+    friend JNIEXPORT void Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunRadius(JNIEnv *env, jobject thiz, jint progress, jint max);
+    friend JNIEXPORT void JNICALL Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1passVector(JNIEnv *env, jobject thiz, jfloat x, jfloat y);
+    friend JNIEXPORT void JNICALL Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1zoom(JNIEnv *env, jobject thiz, jdouble ratio);
 
 private:
     Shader * p_light_shader_;
@@ -48,7 +62,7 @@ private:
 
     AAssetManager * mgr_;
 
-    const std::string default_model_path_ = "/data/data/com.example.ys.orbtest.debug/files/obj/tower/tower.obj";
+    const std::string default_model_path_ = "/data/data/com.example.ys.orbtest.debug/files/obj/door/door.obj";
 
     Model model_;
 

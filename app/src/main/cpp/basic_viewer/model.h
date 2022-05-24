@@ -48,7 +48,7 @@ public:
     vector<Texture> textures_;
 
     void Setup();
-    void Draw(Shader shader, bool is_shadow) const;
+    void Draw(Shader shader, bool is_shadow, GLenum render_mode) const;
 
 private:
     unsigned int VAO;
@@ -63,6 +63,8 @@ public:
 
     bool Load(const string & path);
     void Draw(Shader shader, bool is_shadow) const;
+
+    GLenum render_mode_ = GL_TRIANGLES;
 
 private:
     vector<Mesh> mesh_vec_;

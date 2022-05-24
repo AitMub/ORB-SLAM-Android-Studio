@@ -116,15 +116,15 @@ void BasicRenderer::SetMVPMatrix() const{
     glm::mat4 model = glm::mat4(1.0f);
     static int time = 0;
     float angle = time;
-    model = glm::scale(model, glm::vec3(0.5f,0.5f,0.5f));
+    model = glm::scale(model, glm::vec3(1.0f,1.0f,1.0f));
     model = glm::rotate(model, glm::radians(angle/2), glm::vec3(0.0f, 1.0f, 0.0f));
-    model = glm::translate(model, glm::vec3(0,-4,0));
+    model = glm::translate(model, glm::vec3(0,0,0));
     p_light_shader_->setMat4("model", model);
 
     // view
     glm::mat4 view = glm::mat4(1.0f);
     view = glm::lookAt(render_parameter_.cameraPos,
-                       render_parameter_.cameraPos + render_parameter_.cameraFront,
+                       glm::vec3(0,0,0),
                        render_parameter_.cameraUp);
     p_light_shader_->setMat4("view", view);
 

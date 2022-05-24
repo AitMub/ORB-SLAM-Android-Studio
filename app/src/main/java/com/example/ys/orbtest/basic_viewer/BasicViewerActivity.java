@@ -118,17 +118,17 @@ public class BasicViewerActivity extends AppCompatActivity implements View.OnCli
 
             case R.id.mode1:
                 String pattern1 = ((Button) v).getText().toString();
-                myGLSurfaceView.setPattern(pattern1);
+                myGLSurfaceView.setPattern("1");
                 break;
 
             case R.id.mode2:
                 String pattern2 = ((Button) v).getText().toString();
-                myGLSurfaceView.setPattern(pattern2);
+                myGLSurfaceView.setPattern("2");
                 break;
 
             case R.id.mode3:
                 String pattern3 = ((Button) v).getText().toString();
-                myGLSurfaceView.setPattern(pattern3);
+                myGLSurfaceView.setPattern("3");
                 break;
         }
     }
@@ -306,7 +306,9 @@ public class BasicViewerActivity extends AppCompatActivity implements View.OnCli
                     return false;
                 }
                 myGLSurfaceView.passVector(mCurPosX - mPosX, mCurPosY - mPosY);
-//                Log.d("zjh",  "(" + (mCurPosX - mPosX) + ", " + (mCurPosY - mPosY) + ")");
+                mPosX = mCurPosX;
+                mPosY = mCurPosY;
+                Log.d("zjh",  "(" + (mCurPosX - mPosX) + ", " + (mCurPosY - mPosY) + ")");
                 break;
             case MotionEvent.ACTION_UP:
                 mCurPosX = event.getX();
@@ -355,7 +357,6 @@ public class BasicViewerActivity extends AppCompatActivity implements View.OnCli
                     }
                     break;
             }
-
 
         return true;
     }

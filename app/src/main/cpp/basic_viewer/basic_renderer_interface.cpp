@@ -76,39 +76,65 @@ Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setPattern(JNIEnv *env
     //模式名称
     string pattern_str = str;
 
-    env->ReleaseStringUTFChars(pattern, str);
+    __android_log_print(ANDROID_LOG_ERROR, "debug", "pattern_str %s", pattern_str.c_str());
 
+
+    env->ReleaseStringUTFChars(pattern, str);
 }
 
 JNIEXPORT void JNICALL
 Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunHeight(JNIEnv *env, jobject thiz,
                                                                   jint progress, jint max) {
     //progress表示拖动条的当前值， max表示拖动条的最大值
-    int progressX = progress;
-    int maxX = max;
+    static int prevHeight = progress;
+    static int maxHeight = max;
+
+    int progressHeight = progress;
+    int diff = progressHeight - prevHeight;
+    prevHeight = progressHeight;
+
+    glm::vec3 newHeight = mRenderer->render_parameter_.lightPos;
+    newHeight.y = newHeight.y + diff;
+    mRenderer->render_parameter_.lightPos = newHeight;
 }
 
 JNIEXPORT void JNICALL
 Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunRotation(JNIEnv *env, jobject thiz,
                                                                   jint progress, jint max) {
-    int progressY = progress;
-    int maxY = max;
+    int progressRotation = progress;
+
+    glm::mat3 rotate_m = glm::rotate(glm::radians(progressRotation * 1.0f), glm::vec3(0.0f, 1.0f, 0.0f));
+    mRenderer->render_parameter_.lightPos = rotate_m * mRenderer->render_parameter_.lightPos;
 }
 
 JNIEXPORT void JNICALL
 Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunRadius(JNIEnv *env, jobject thiz,
                                                                   jint progress, jint max) {
-    int progressZ = progress;
-    int maxZ = max;
+    static int prevRadius = progress;
+    static int maxRadius = max;
+
+    int progressRadius = progress;
+    int diff = progressRadius - prevRadius;
+    prevRadius = progressRadius;
+
+    glm::vec3 lightFront = glm::normalize(mRenderer->render_parameter_.lightPos);
+    mRenderer->render_parameter_.lightPos += (float)diff * lightFront;
 }
 
 JNIEXPORT void JNICALL
 Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1passVector(JNIEnv *env, jobject thiz,
                                                                      jfloat x, jfloat y) {
-    //移动向量，y向下为正，x向右正
-    float vector_x = x;
-    float vector_y = y;
+    static float cursor_sensitivy_rotate = 0.1f;
 
+    float angle_x = -x;
+    float angle_y = y;
+
+    glm::mat3 rotate_x = glm::rotate(glm::radians(angle_x * cursor_sensitivy_rotate), glm::vec3(0.0f, 1.0f, 0.0f));
+
+    glm::vec3 vertical = glm::normalize(glm::cross(mRenderer->render_parameter_.cameraUp, mRenderer->render_parameter_.cameraFront));
+    glm::mat3 rotate_y = glm::rotate(glm::radians(angle_y* cursor_sensitivy_rotate), vertical);
+
+    mRenderer->render_parameter_.cameraPos = rotate_x * rotate_y * mRenderer->render_parameter_.cameraPos;
 }
 
 JNIEXPORT void JNICALL
