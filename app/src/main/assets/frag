@@ -1,11 +1,8 @@
 #version 300 es
-precision mediump float;
 out vec4 FragColor;
 
-struct Material {
-    sampler2D texture_diffuse;
-    sampler2D texture_specular;
-}; 
+uniform sampler2D depthTexture;
+uniform sampler2D diffuseTexture;
 
 in vec3 Normal;
 in vec3 FragPos;
@@ -21,11 +18,9 @@ uniform float ambientStrength;
 uniform float diffuseStrength;
 uniform float specularStrength;
 
-uniform sampler2D depthTexture;
 in vec4 light_space_pos;
 
 uniform bool hasMaterial;
-uniform Material material;
 
 
 float ShadowCalculation(vec4 light_space_pos)
@@ -36,8 +31,6 @@ float ShadowCalculation(vec4 light_space_pos)
     float closest_depth = texture(depthTexture, proj_coords.xy).r;
     float current_depth = proj_coords.z;
 
-    return current_depth;
-
     if(current_depth > closest_depth) return 1.0;
     else return 0.0;
 }
@@ -45,7 +38,7 @@ float ShadowCalculation(vec4 light_space_pos)
 
 void main()
 {
-    vec3 color = hasMaterial ? texture(material.texture_diffuse, TexCoords).rgb : defaultColor;
+    vec3 color = hasMaterial ? texture(diffuseTexture, TexCoords).rgb : defaultColor;
     float shadow = ShadowCalculation(light_space_pos);
 
 	// ambient
@@ -63,14 +56,8 @@ void main()
     float high = pow(max(0.0 ,dot(bivector, norm)), float(specP));
     vec3 highlight = specularStrength * high * lightColor;
 
-    float near_plane = 0.1f;
-    float far_plane = 1000.0f;
-    float depth = (2.0 * near_plane * far_plane) / (far_plane + near_plane - shadow * (far_plane - near_plane)) / 50.0f;
+    ivec2 iv = textureSize(depthTexture, 0);
 
-        vec3 proj_coords = light_space_pos.xyz / light_space_pos.w;
-        proj_coords = proj_coords * 0.5 + 0.5;
-        float current_depth = proj_coords.z;
-
-    FragColor = vec4(ambient +  (diffuse + highlight), 1.0);
+    FragColor = vec4(ambient +  (diffuse + highlight) * (1.0 - shadow), 1.0);
 }
 //

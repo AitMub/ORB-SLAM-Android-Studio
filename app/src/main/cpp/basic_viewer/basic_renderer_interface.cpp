@@ -96,6 +96,8 @@ Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunHeight(JNIEnv *e
     glm::vec3 newHeight = mRenderer->render_parameter_.lightPos;
     newHeight.y = newHeight.y + diff;
     mRenderer->render_parameter_.lightPos = newHeight;
+
+    mRenderer->render_parameter_.RecalculateLightSpaceM();
 }
 
 JNIEXPORT void JNICALL
@@ -105,6 +107,8 @@ Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunRotation(JNIEnv 
 
     glm::mat3 rotate_m = glm::rotate(glm::radians(progressRotation * 1.0f), glm::vec3(0.0f, 1.0f, 0.0f));
     mRenderer->render_parameter_.lightPos = rotate_m * mRenderer->render_parameter_.lightPos;
+
+    mRenderer->render_parameter_.RecalculateLightSpaceM();
 }
 
 JNIEXPORT void JNICALL
@@ -119,6 +123,8 @@ Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setSunRadius(JNIEnv *e
 
     glm::vec3 lightFront = glm::normalize(mRenderer->render_parameter_.lightPos);
     mRenderer->render_parameter_.lightPos += (float)diff * lightFront;
+
+    mRenderer->render_parameter_.RecalculateLightSpaceM();
 }
 
 JNIEXPORT void JNICALL

@@ -56,16 +56,16 @@ void BasicRenderer::ShadowInit() {
 
     GLenum none = GL_NONE;
     glDrawBuffers(1, &none);
-    glReadBuffer(GL_NONE);
 
     glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, depthTextureID_, 0);
+
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, depthTextureID_);
 
     if(GL_FRAMEBUFFER_COMPLETE != glCheckFramebufferStatus(GL_FRAMEBUFFER))
     {
         GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-        __android_log_print(ANDROID_LOG_ERROR, "debug", "FRAME_BUFFER error, %d, %d", status);
+        __android_log_print(ANDROID_LOG_ERROR, "debug", "FRAME_BUFFER error, %d", status);
     }
     else
     {
@@ -81,13 +81,13 @@ void BasicRenderer::Draw() const{
 }
 
 void BasicRenderer::DrawShadowMap() const {
-    glViewport(0, 0, render_parameter_.shadowTextureWidth, render_parameter_.shadowTextureHeight);
-    glBindFramebuffer(GL_FRAMEBUFFER, FBOShadow_);
-    glClear(GL_DEPTH_BUFFER_BIT);
-
     // render
     p_shadow_shader_->use();
     p_shadow_shader_->setMat4("light_space", render_parameter_.lightSpace);
+
+    glViewport(0, 0, render_parameter_.shadowTextureWidth, render_parameter_.shadowTextureHeight);
+    glBindFramebuffer(GL_FRAMEBUFFER, FBOShadow_);
+    glClear(GL_DEPTH_BUFFER_BIT);
 
     model_.Draw(*p_shadow_shader_, true);
 
@@ -114,10 +114,7 @@ bool BasicRenderer::LoadModel(const std::string & path) {
 void BasicRenderer::SetMVPMatrix() const{
     // model
     glm::mat4 model = glm::mat4(1.0f);
-    static int time = 0;
-    float angle = time;
     model = glm::scale(model, glm::vec3(1.0f,1.0f,1.0f));
-    model = glm::rotate(model, glm::radians(angle/2), glm::vec3(0.0f, 1.0f, 0.0f));
     model = glm::translate(model, glm::vec3(0,0,0));
     p_light_shader_->setMat4("model", model);
 
@@ -144,7 +141,9 @@ void BasicRenderer::SetShaderParameters() const {
     p_light_shader_->setVec3("lightPos", render_parameter_.lightPos);
     p_light_shader_->setVec3("viewPos", render_parameter_.cameraPos);
 
-    p_light_shader_->setInt("depthTexture", 0);
+    glUniform1i(glGetUniformLocation(p_light_shader_->ID, "depthTexture"), 0);
+    glUniform1i(glGetUniformLocation(p_light_shader_->ID, "diffuseTexture"), 1);
+
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, depthTextureID_);
 

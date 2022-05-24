@@ -37,6 +37,13 @@ struct RenderParameter
                                       glm::vec3(0, 1, 0));
     glm::mat4 lightSpace = lightProjection * lightView;
 
+    void RecalculateLightSpaceM(){
+        lightView = glm::lookAt(lightPos,
+                                glm::vec3(0, 0, 0),
+                                glm::vec3(0, 1, 0));
+        lightSpace = lightProjection * lightView;
+    }
+
     // camera
     glm::vec3 cameraPos = glm::vec3(0.0f, 5.0f, 5.0f);
     glm::vec3 cameraFront = glm::vec3(0.0f, -1.0f, -1.0f);

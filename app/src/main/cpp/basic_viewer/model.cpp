@@ -65,7 +65,6 @@ void Mesh::Setup() {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices_.size() * sizeof(unsigned int), &indices_[0], GL_STATIC_DRAW);
 
-
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
 
@@ -95,7 +94,6 @@ void Mesh::Draw(Shader shader, bool is_shadow, GLenum render_mode) const{
 
     for(unsigned int i = 0; i < textures_.size(); i++)
     {
-        glActiveTexture(GL_TEXTURE0 + i);
         shader.setBool("hasMaterial", true);
 
         string number;
@@ -110,7 +108,9 @@ void Mesh::Draw(Shader shader, bool is_shadow, GLenum render_mode) const{
             number = std::to_string(specularNr++);
         }
 
-        shader.setInt(("material." + name).c_str(), i + 1);
+        //shader.setInt(("material." + name).c_str(), i + 1);
+        //glActiveTexture(GL_TEXTURE1);
+        //glBindTexture(GL_TEXTURE_2D, textures_[i].id);
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, textures_[i].id);
     }
@@ -118,7 +118,6 @@ void Mesh::Draw(Shader shader, bool is_shadow, GLenum render_mode) const{
     // render
     glBindVertexArray(VAO);
     glDrawElements(render_mode, indices_.size(), GL_UNSIGNED_INT, 0);
-    // glDrawElements(GL_LINE_STRIP, indices_.size(), GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
 }
 
