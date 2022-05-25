@@ -58,6 +58,6 @@ void main()
 
     ivec2 iv = textureSize(depthTexture, 0);
 
-    FragColor = vec4(ambient +  (diffuse + highlight) * (1.0 - shadow), 1.0);
+    FragColor = vec4(ambient +  (diffuse + highlight), 1.0);
 }
 //

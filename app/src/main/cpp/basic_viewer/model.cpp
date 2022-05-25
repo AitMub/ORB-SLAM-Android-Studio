@@ -123,7 +123,12 @@ void Mesh::Draw(Shader shader, bool is_shadow, GLenum render_mode) const{
 
 
 // ----- Model -----
+void Model::Clear(){
+    mesh_vec_.clear();
+}
+
 bool Model::Load(const string & path){
+    Clear();
     Assimp::Importer importer;
 
     const aiScene * scene = importer.ReadFile(path,

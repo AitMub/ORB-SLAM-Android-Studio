@@ -63,6 +63,7 @@ public:
 
     bool Load(const string & path);
     void Draw(Shader shader, bool is_shadow) const;
+    void Clear();
 
     GLenum render_mode_ = GL_TRIANGLES;
 
