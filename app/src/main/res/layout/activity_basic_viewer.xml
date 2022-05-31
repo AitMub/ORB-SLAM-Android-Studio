@@ -89,30 +89,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp">
+
         <Button
             android:id="@+id/mode1"
-            android:text="模式一"
-            android:textSize="20sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:text="面渲染"
+            android:textSize="20sp" />
 
         <Button
             android:layout_marginTop="5dp"
             android:id="@+id/mode2"
-            android:text="模式二"
+            android:text="线渲染"
             android:textSize="20sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/mode1" />
 
-        <Button
-            android:id="@+id/mode3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/mode2"
-            android:layout_marginTop="5dp"
-            android:text="模式三"
-            android:textSize="20sp" />
 
         <Button
             android:id="@+id/pickFIle"

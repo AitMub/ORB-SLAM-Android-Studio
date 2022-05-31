@@ -94,7 +94,6 @@ public class BasicViewerActivity extends AppCompatActivity implements View.OnCli
         barZ.setOnSeekBarChangeListener(this);
         findViewById(R.id.mode1).setOnClickListener(this);
         findViewById(R.id.mode2).setOnClickListener(this);
-        findViewById(R.id.mode3).setOnClickListener(this);
     }
 
     @Override
@@ -129,10 +128,6 @@ public class BasicViewerActivity extends AppCompatActivity implements View.OnCli
                 myGLSurfaceView.setPattern("2");
                 break;
 
-            case R.id.mode3:
-                String pattern3 = ((Button) v).getText().toString();
-                myGLSurfaceView.setPattern("3");
-                break;
         }
     }
 
