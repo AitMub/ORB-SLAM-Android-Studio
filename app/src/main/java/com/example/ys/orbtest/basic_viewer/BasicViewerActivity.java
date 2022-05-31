@@ -190,17 +190,18 @@ public class BasicViewerActivity extends AppCompatActivity implements View.OnCli
                 }
             }
             // DownloadsProvider
-            else if (isDownloadsDocument(uri)) {
-//                Log.i("zjh","isDownloadsDocument***"+uri.toString());
-                final String id = DocumentsContract.getDocumentId(uri);
+//            else if (isDownloadsDocument(uri)) {
+////                Log.i("zjh","isDownloadsDocument***"+uri.toString());
+//                final String id = DocumentsContract.getDocumentId(uri);
+//
 //                final Uri contentUri = ContentUris.withAppendedId(
 //                        Uri.parse("content://downloads/public_downloads"), Long.valueOf(id) );
-
+//
 //                return getDataColumn(context, contentUri, null, null);
-                return id.split(":")[1];
-            }
+////                return id.split(":")[1];
+//            }
             // MediaProvider
-            else if (isMediaDocument(uri)) {
+            else if (isMediaDocument(uri) || isDownloadsDocument(uri)) {
 //                Log.d("zjh","isMediaDocument***"+uri.toString());
                 final String docId = DocumentsContract.getDocumentId(uri);
                 final String[] split = docId.split(":");
@@ -213,6 +214,10 @@ public class BasicViewerActivity extends AppCompatActivity implements View.OnCli
                     contentUri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
                 } else if ("audio".equals(type)) {
                     contentUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
+                } else if ("msf".equals(type)){
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                        contentUri = MediaStore.Downloads.EXTERNAL_CONTENT_URI;
+                    }
                 }
 
                 final String selection = "_id=?";
@@ -308,7 +313,7 @@ public class BasicViewerActivity extends AppCompatActivity implements View.OnCli
                 myGLSurfaceView.passVector(mCurPosX - mPosX, mCurPosY - mPosY);
                 mPosX = mCurPosX;
                 mPosY = mCurPosY;
-                Log.d("zjh",  "(" + (mCurPosX - mPosX) + ", " + (mCurPosY - mPosY) + ")");
+//                Log.d("zjh",  "(" + (mCurPosX - mPosX) + ", " + (mCurPosY - mPosY) + ")");
                 break;
             case MotionEvent.ACTION_UP:
                 mCurPosX = event.getX();

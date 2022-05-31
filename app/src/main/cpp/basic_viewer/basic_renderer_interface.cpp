@@ -62,6 +62,8 @@ Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setModelPath(JNIEnv *e
                                                                        jstring path) {
     const char* str;
     str = env->GetStringUTFChars(path, NULL);
+    __android_log_print(ANDROID_LOG_ERROR, "debug", "path %s", str);
+
     mRenderer->LoadModel((string) str);
 
     env->ReleaseStringUTFChars(path, str);
