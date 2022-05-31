@@ -62,7 +62,6 @@ Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setModelPath(JNIEnv *e
                                                                        jstring path) {
     const char* str;
     str = env->GetStringUTFChars(path, NULL);
-
     mRenderer->LoadModel((string) str);
 
     env->ReleaseStringUTFChars(path, str);
@@ -146,8 +145,13 @@ Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1passVector(JNIEnv *env
 JNIEXPORT void JNICALL
 Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1zoom(JNIEnv *env, jobject thiz,
                                                                jdouble ratio) {
-    //缩放比例
-    double zoom_ratio = ratio;
+    static const double k = 0.1;
+    static const double b = 1.0 - k;
+
+    double zoom_ratio = 1.0/ratio;
+    double slow_ratio = zoom_ratio * k + b;
+
+    mRenderer->render_parameter_.cameraPos *= slow_ratio;
 }
 
 }// End extern "C"

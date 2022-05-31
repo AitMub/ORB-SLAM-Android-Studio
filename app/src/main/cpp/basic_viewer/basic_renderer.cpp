@@ -121,7 +121,7 @@ void BasicRenderer::SetMVPMatrix() const{
     // view
     glm::mat4 view = glm::mat4(1.0f);
     view = glm::lookAt(render_parameter_.cameraPos,
-                       glm::vec3(0,0,0),
+                       render_parameter_.cameraLookAt,
                        render_parameter_.cameraUp);
     p_light_shader_->setMat4("view", view);
 
