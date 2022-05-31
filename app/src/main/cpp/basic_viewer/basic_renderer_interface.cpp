@@ -64,7 +64,10 @@ Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setModelPath(JNIEnv *e
     str = env->GetStringUTFChars(path, NULL);
     __android_log_print(ANDROID_LOG_ERROR, "debug", "path %s", str);
 
-    mRenderer->LoadModel((string) str);
+
+
+    mRenderer->model_path_ = (string) str;
+
 
     env->ReleaseStringUTFChars(path, str);
 }
@@ -77,7 +80,14 @@ Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setPattern(JNIEnv *env
     //模式名称
     string pattern_str = str;
 
-    __android_log_print(ANDROID_LOG_ERROR, "debug", "pattern_str %s", pattern_str.c_str());
+    if(pattern_str == "1")
+    {
+        mRenderer->render_parameter_.renderMode = GL_TRIANGLES;
+    }
+    else if(pattern_str == "2")
+    {
+        mRenderer->render_parameter_.renderMode = GL_LINE_STRIP;
+    }
 
 
     env->ReleaseStringUTFChars(pattern, str);

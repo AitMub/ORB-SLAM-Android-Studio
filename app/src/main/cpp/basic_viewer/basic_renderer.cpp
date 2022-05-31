@@ -26,7 +26,7 @@ void BasicRenderer::Init(AAssetManager* mgr){
     ShadowInit();
 
     // load default model
-    LoadModel(default_model_path_);
+    LoadModel(model_path_);
 }
 
 void BasicRenderer::ShadowInit() {
@@ -80,8 +80,7 @@ void BasicRenderer::Draw() const{
     DrawModel();
 }
 
-void BasicRenderer::DrawShadowMap() const {
-    // render
+void BasicRenderer::DrawShadowMap() const {`    // render
     p_shadow_shader_->use();
     p_shadow_shader_->setMat4("light_space", render_parameter_.lightSpace);
 
@@ -89,7 +88,7 @@ void BasicRenderer::DrawShadowMap() const {
     glBindFramebuffer(GL_FRAMEBUFFER, FBOShadow_);
     glClear(GL_DEPTH_BUFFER_BIT);
 
-    model_.Draw(*p_shadow_shader_, true);
+    model_.Draw(*p_shadow_shader_, true, GL_TRIANGLES);
 
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
 }
@@ -104,7 +103,7 @@ void BasicRenderer::DrawModel() const{
     SetMVPMatrix();
     SetShaderParameters();
 
-    model_.Draw(*p_light_shader_, false);
+    model_.Draw(*p_light_shader_, false, render_parameter_.renderMode);
 }
 
 bool BasicRenderer::LoadModel(const std::string & path) {

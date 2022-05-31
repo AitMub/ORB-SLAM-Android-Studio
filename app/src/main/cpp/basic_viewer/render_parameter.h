@@ -18,8 +18,7 @@ struct RenderParameter
     glm::vec3 defaultColor = glm::vec3(0.5f,0.5f,0.5f);
 
     // render
-    enum ERenderMode {Point, Line, Face};
-    ERenderMode renderMode = Face;
+    GLenum renderMode = GL_TRIANGLES;
     bool bShadowOn = true;
 
     // shadow

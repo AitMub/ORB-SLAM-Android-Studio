@@ -92,6 +92,9 @@ public class BasicViewerActivity extends AppCompatActivity implements View.OnCli
         barX.setOnSeekBarChangeListener(this);
         barY.setOnSeekBarChangeListener(this);
         barZ.setOnSeekBarChangeListener(this);
+        findViewById(R.id.mode1).setOnClickListener(this);
+        findViewById(R.id.mode2).setOnClickListener(this);
+        findViewById(R.id.mode3).setOnClickListener(this);
     }
 
     @Override

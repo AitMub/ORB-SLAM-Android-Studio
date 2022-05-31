@@ -161,10 +161,10 @@ bool Model::Load(const string & path){
 }
 
 
-void Model::Draw(Shader shader, bool is_shadow) const{
+void Model::Draw(Shader shader, bool is_shadow, GLenum render_mode) const{
     for(unsigned int i = 0; i < mesh_vec_.size(); i++)
     {
-        mesh_vec_[i].Draw(shader, is_shadow, render_mode_);
+        mesh_vec_[i].Draw(shader, is_shadow, render_mode);
     }
 }
 

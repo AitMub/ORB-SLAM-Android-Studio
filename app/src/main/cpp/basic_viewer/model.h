@@ -62,10 +62,8 @@ public:
     Model(){};
 
     bool Load(const string & path);
-    void Draw(Shader shader, bool is_shadow) const;
+    void Draw(Shader shader, bool is_shadow, GLenum render_mode) const;
     void Clear();
-
-    GLenum render_mode_ = GL_TRIANGLES;
 
 private:
     vector<Mesh> mesh_vec_;
