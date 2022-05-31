@@ -26,7 +26,7 @@ void BasicRenderer::Init(AAssetManager* mgr){
     ShadowInit();
 
     // load default model
-    LoadModel(default_model_path_);
+    LoadModel(model_path_);
 }
 
 void BasicRenderer::ShadowInit() {

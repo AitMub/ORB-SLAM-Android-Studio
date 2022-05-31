@@ -62,7 +62,8 @@ Java_com_example_ys_orbtest_basic_1viewer_MyCppRenderer__1setModelPath(JNIEnv *e
                                                                        jstring path) {
     const char* str;
     str = env->GetStringUTFChars(path, NULL);
-    mRenderer->LoadModel((string) str);
+
+    mRenderer->model_path_ = "/data/data/com.example.ys.orbtest.debug/files/obj/gun/gun.obj";
 
     env->ReleaseStringUTFChars(path, str);
 }
