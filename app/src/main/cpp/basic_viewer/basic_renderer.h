@@ -62,7 +62,8 @@ private:
 
     AAssetManager * mgr_;
 
-    const std::string default_model_path_ = "/data/data/com.example.ys.orbtest.debug/files/obj/door/door.obj";
+//    const std::string default_model_path_ = "/data/data/com.example.ys.orbtest.debug/files/obj/door/door.obj";
+    const std::string default_model_path_ = "/storage/emulated/0/Download/obj/door/door.obj";
 
     Model model_;
 

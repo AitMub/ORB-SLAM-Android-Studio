@@ -27,6 +27,7 @@ import android.widget.SeekBar;
 
 import com.example.ys.orbtest.R;
 import com.example.ys.orbtest.entity.Parameter;
+import com.example.ys.orbtest.util.PermissionUtil;
 
 import java.io.Serializable;
 
@@ -55,7 +56,6 @@ public class BasicViewerActivity extends AppCompatActivity implements View.OnCli
     private float mSecondTouchX;
     private float mSecondTouchY;
     private double firstPointerLength;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
