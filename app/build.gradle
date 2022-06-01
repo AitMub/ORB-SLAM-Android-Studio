@@ -45,7 +45,7 @@ android {
     }
     sourceSets {
         main {
-            jniLibs.srcDirs = ['${lib_distribution_root}/libs']
+            jniLibs.srcDirs(['${lib_distribution_root}/libs'])
         }
     }
     packagingOptions {
