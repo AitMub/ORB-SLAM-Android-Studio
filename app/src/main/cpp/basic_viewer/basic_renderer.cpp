@@ -80,7 +80,7 @@ void BasicRenderer::Draw() const{
     DrawModel();
 }
 
-void BasicRenderer::DrawShadowMap() const {`    // render
+void BasicRenderer::DrawShadowMap() const {    // render
     p_shadow_shader_->use();
     p_shadow_shader_->setMat4("light_space", render_parameter_.lightSpace);
 

@@ -63,8 +63,8 @@ private:
     AAssetManager * mgr_;
 
 
-//    std::string model_path_ = "/data/data/com.example.ys.orbtest.debug/files/obj/door/door.obj";
-    std::string model_path_ = "/storage/emulated/0/Download/obj/door/door.obj";
+    std::string model_path_ = "/data/data/com.example.ys.orbtest.debug/files/obj/door/door.obj";
+//    std::string model_path_ = "/storage/emulated/0/Download/obj/door/door.obj";
 
 
     Model model_;
