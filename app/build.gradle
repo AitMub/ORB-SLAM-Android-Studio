@@ -45,11 +45,12 @@ android {
     }
     sourceSets {
         main {
-            jniLibs.srcDirs('${lib_distribution_root}/libs')
+            jniLibs.srcDirs(['${lib_distribution_root}/libs'])
         }
     }
     packagingOptions {
         pickFirst 'lib/arm64-v8a/libassimp.so'
+        pickFirst 'lib/arm64-v8a/libopencv_java3.so'
     }
 }
 
